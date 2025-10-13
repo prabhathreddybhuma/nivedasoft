@@ -161,6 +161,21 @@ html {
     font-weight: 700;
     color: var(--text-dark);
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+.logo:hover .logo-img {
+    transform: scale(1.05);
 }
 
 .nav-menu {
@@ -389,6 +404,16 @@ html {
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.8s ease-out 0.2s forwards;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader-logo-img {
+    height: 40px;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
 }
 
 .loader-spinner {
@@ -2935,6 +2960,16 @@ html {
         justify-content: center;
     }
     
+    /* Responsive logo */
+    .logo {
+        height: 36px;
+    }
+    
+    .logo-img {
+        height: 36px;
+        max-width: 150px;
+    }
+    
     /* Better carousel controls */
     .carousel-btn {
         min-height: 48px;
@@ -3561,6 +3596,22 @@ html {
     .hero-cta {
         flex-direction: column;
         gap: 12px;
+    }
+    
+    /* Smaller logo for mobile */
+    .logo {
+        height: 32px;
+    }
+    
+    .logo-img {
+        height: 32px;
+        max-width: 120px;
+    }
+    
+    /* Responsive loader logo */
+    .loader-logo-img {
+        height: 32px;
+        max-width: 150px;
     }
 }
 
