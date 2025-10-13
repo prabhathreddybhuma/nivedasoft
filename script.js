@@ -4,7 +4,8 @@ const navMenu = document.getElementById('navMenu');
 
 if (mobileToggle && navMenu) {
     mobileToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
+        const isActive = navMenu.classList.toggle('active');
+        mobileToggle.setAttribute('aria-expanded', isActive);
     });
 }
 
@@ -30,6 +31,40 @@ document.querySelectorAll('.nav-link').forEach(link => {
             navMenu.classList.remove('active');
         }
     });
+});
+
+// Testimonials Carousel
+document.addEventListener('DOMContentLoaded', () => {
+    const testimonialsTrack = document.querySelector('.testimonials-track');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    
+    if (testimonialsTrack && prevBtn && nextBtn) {
+        let currentIndex = 0;
+        const testimonials = document.querySelectorAll('.testimonial-card');
+        const totalTestimonials = testimonials.length;
+        
+        const updateCarousel = () => {
+            const translateX = -currentIndex * (400 + 30); // card width + gap
+            testimonialsTrack.style.transform = `translateX(${translateX}px)`;
+        };
+        
+        const nextTestimonial = () => {
+            currentIndex = (currentIndex + 1) % totalTestimonials;
+            updateCarousel();
+        };
+        
+        const prevTestimonial = () => {
+            currentIndex = (currentIndex - 1 + totalTestimonials) % totalTestimonials;
+            updateCarousel();
+        };
+        
+        nextBtn.addEventListener('click', nextTestimonial);
+        prevBtn.addEventListener('click', prevTestimonial);
+        
+        // Auto-play carousel
+        setInterval(nextTestimonial, 5000);
+    }
 });
 
 // Smooth Scrolling for Navigation Links
@@ -141,26 +176,58 @@ const animateCounter = (element, target, duration = 1800, delay = 0) => {
 const statsObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, idx) => {
         if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+            console.log('Stats section is visible, triggering animation for:', entry.target);
             entry.target.classList.add('counted');
             entry.target.classList.add('revealed');
             const number = entry.target.querySelector('.stat-number');
-            const targetText = number.textContent.replace(/[^0-9]/g, '');
-            const target = parseInt(targetText);
+            
+            // Get target from data-target attribute
+            const target = parseInt(number.getAttribute('data-target')) || 0;
+            console.log('Animating to target:', target);
+            
+            // Get suffix from current text content
             const suffix = number.textContent.replace(/[0-9,]/g, '');
             number.dataset.suffix = suffix;
+            
             // stagger based on position in grid
-            const delay = (Array.from(document.querySelectorAll('.stat-item')).indexOf(entry.target) % 3) * 120;
+            const delay = (Array.from(document.querySelectorAll('.stat-card')).indexOf(entry.target) % 3) * 120;
             animateCounter(number, target, 1800, delay);
         }
     });
-}, { threshold: 0.5 });
+}, { 
+    threshold: 0.2, 
+    rootMargin: '0px 0px -100px 0px' 
+});
 
-document.querySelectorAll('.stat-item').forEach(stat => {
-    statsObserver.observe(stat);
+// Initialize stats observer when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    const statCards = document.querySelectorAll('.stat-card');
+    const statsSection = document.querySelector('.landing-stats');
+    
+    // Only observe stats cards, don't trigger immediately
+    statCards.forEach((stat) => {
+        statsObserver.observe(stat);
+    });
+    
+    // Also observe the entire stats section for better detection
+    if (statsSection) {
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    console.log('Stats section is in view');
+                    // The individual stat cards will be handled by their own observer
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        sectionObserver.observe(statsSection);
+    }
+    
+    console.log(`Observing ${statCards.length} stat cards for animation`);
 });
 
 // Parallax light effect on hover for stat cards
-document.querySelectorAll('.landing-stats .stat-item').forEach(card => {
+document.querySelectorAll('.landing-stats .stat-card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
         const mx = ((e.clientX - rect.left) / rect.width) * 100;
@@ -170,11 +237,75 @@ document.querySelectorAll('.landing-stats .stat-item').forEach(card => {
     });
 });
 
-// Reveal hero content on load and apply subtle parallax
-window.addEventListener('load', () => {
-    document.querySelectorAll('.hero .reveal-up').forEach(el => {
-        requestAnimationFrame(() => el.classList.add('revealed'));
-    });
+
+// Page load animation sequence
+document.addEventListener('DOMContentLoaded', () => {
+    const pageLoader = document.getElementById('pageLoader');
+    const heroSection = document.querySelector('.hero');
+    const heroElements = document.querySelectorAll('.hero .reveal-up');
+    
+    // Hide the hero section initially
+    if (heroSection) {
+        heroSection.style.opacity = '0';
+        heroSection.style.transform = 'translateY(20px)';
+        heroSection.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+        
+        // Ensure hero background and shapes are also hidden initially
+        const heroBackground = heroSection.querySelector('.hero-background');
+        const heroShapes = heroSection.querySelectorAll('.hero-shapes .shape');
+        
+        if (heroBackground) {
+            heroBackground.style.opacity = '0';
+        }
+        
+        heroShapes.forEach(shape => {
+            shape.style.opacity = '0';
+        });
+    }
+    
+    // Start the animation sequence after a short delay
+    setTimeout(() => {
+        // Fade out the loader
+        if (pageLoader) {
+            pageLoader.classList.add('fade-out');
+        }
+        
+        // Show the hero section
+        if (heroSection) {
+            heroSection.style.opacity = '1';
+            heroSection.style.transform = 'translateY(0)';
+            
+            // Trigger background and shapes animations
+            const heroBackground = heroSection.querySelector('.hero-background');
+            const heroShapes = heroSection.querySelectorAll('.hero-shapes .shape');
+            
+            if (heroBackground) {
+                heroBackground.style.opacity = '1';
+            }
+            
+            // Trigger shapes animations with staggered timing
+            heroShapes.forEach((shape, index) => {
+                setTimeout(() => {
+                    shape.style.opacity = '0.6';
+                }, 300 + (index * 200));
+            });
+        }
+        
+        // Trigger hero text animations with staggered timing
+        heroElements.forEach((el, index) => {
+            setTimeout(() => {
+                el.classList.add('revealed');
+            }, 200 + (index * 100)); // 200ms base delay + 100ms per element
+        });
+        
+        // Remove the loader from DOM after animation
+        setTimeout(() => {
+            if (pageLoader) {
+                pageLoader.remove();
+            }
+        }, 500);
+        
+    }, 800); // Initial delay before starting animations
 });
 
 // Enhanced hero parallax and navbar integration
@@ -209,7 +340,7 @@ window.addEventListener('scroll', () => {
 });
 
 // Button Ripple Effect
-document.querySelectorAll('.primary-btn, .secondary-btn, .cta-btn').forEach(button => {
+document.querySelectorAll('.primary-btn, .secondary-btn, .cta-btn, a.cta-btn').forEach(button => {
     button.addEventListener('click', function(e) {
         const rect = this.getBoundingClientRect();
         const x = e.clientX - rect.left;
@@ -265,4 +396,21 @@ navMenu.addEventListener('transitionend', () => {
     }
 });
 
+// Manual trigger function for testing stats animation
+window.triggerStatsAnimation = () => {
+    const statCards = document.querySelectorAll('.stat-card');
+    statCards.forEach((stat) => {
+        const number = stat.querySelector('.stat-number');
+        const target = parseInt(number.getAttribute('data-target')) || 0;
+        const suffix = number.textContent.replace(/[0-9,]/g, '');
+        number.dataset.suffix = suffix;
+        stat.classList.add('counted');
+        stat.classList.add('revealed');
+        animateCounter(number, target, 1800, 0);
+    });
+    console.log('Stats animation triggered manually');
+};
+
+
 console.log('Nivedasoft Website Loaded Successfully ✨');
+console.log('To manually trigger stats animation, run: triggerStatsAnimation()');

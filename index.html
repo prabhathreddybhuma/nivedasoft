@@ -9,6 +9,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-logo">NivedaSoft</div>
+            <div class="loader-spinner"></div>
+        </div>
+    </div>
+    
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -20,14 +31,15 @@
                 <li><a href="trainings.html" class="nav-link">SAP Trainings</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
-            <button class="cta-btn">Let's Talk</button>
-            <button class="mobile-toggle" id="mobileToggle">
+            <a href="contact.html" class="cta-btn">Let's Talk</a>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu" aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
+    <main id="main-content">
     <section class="hero" id="home">
         <div class="hero-background">
             <div class="hero-mesh"></div>
@@ -52,24 +64,6 @@
                 <span class="feature-tag">Consulting</span>
                 <span class="feature-tag">Innovation</span>
             </div>
-
-            <button class="primary-btn reveal-up d5">Start a Project</button>
-
-            <div class="social-links reveal-up d6">
-                <a href="#"><i class="fab fa-dribbble"></i></a>
-                <a href="#"><i class="fab fa-behance"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-            </div>
-        </div>
-
-        <div class="partner-logos">
-            <span class="partner-text">Trusted Partner</span>
-            <div class="logos">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" alt="Meta">
-            </div>
         </div>
     </section>
 
@@ -88,7 +82,7 @@
                     </div>
                     <h3 class="service-title">Managed Data Center Services</h3>
                     <p class="service-description">
-                        A state of art data center delivering cutting edge performance, security and scalability with advance infrastructure, automation and energy efficacy technologies. We ensure uninterrupted operations and optimal data management for mission critical operations.
+                        A state-of-the-art data center delivering cutting-edge performance, security and scalability with advanced infrastructure, automation and energy efficiency technologies. We ensure uninterrupted operations and optimal data management for mission-critical operations.
                     </p>
                 </div>
 
@@ -118,7 +112,7 @@
                     </div>
                     <h3 class="service-title">Comprehensive SAP Training</h3>
                     <p class="service-description">
-                        Empowering professional with in-depth knowledge across all SAP modules, from core ERP to advanced analytics and cloud solutions. Our holistic training approach ensures hands-on experience practical insights and industry ready expertise for real-world success.
+                        Empowering professionals with in-depth knowledge across all SAP modules, from core ERP to advanced analytics and cloud solutions. Our holistic training approach ensures hands-on experience, practical insights and industry-ready expertise for real-world success.
                     </p>
                 </div>
             </div>
@@ -128,30 +122,159 @@
     <!-- Stats Section -->
     <section class="landing-stats">
         <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Impact</h2>
+                <p class="section-subtitle">Trusted by professionals and organizations worldwide</p>
+            </div>
             <div class="stats-grid">
                 <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
                     <div class="stat-number" data-target="200000">0</div>
                     <div class="stat-label">Professionals Trained</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" data-target="100">0</div>
-                    <div class="stat-label">Hosted Servers</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" data-target="9">0</div>
-                    <div class="stat-label">End to End SAP Implementations</div>
-                </div>
-                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
                     <div class="stat-number" data-target="70">0</div>
-                    <div class="stat-label">Global Clients Served</div>
+                    <div class="stat-label">Global Clients</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" data-target="10000">0</div>
-                    <div class="stat-label">Corporate Trainings Delivered</div>
-                </div>
-                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
                     <div class="stat-number" data-target="95">0</div>
                     <div class="stat-label">Success Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Carousel Section -->
+    <section class="clients-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Trusted Clients</h2>
+                <p class="section-subtitle">We're proud to partner with leading organizations worldwide</p>
+            </div>
+            <div class="clients-carousel">
+                <div class="clients-track">
+                    <div class="client-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" loading="lazy">
+                    </div>
+                    <div class="client-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" loading="lazy">
+                    </div>
+                    <div class="client-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" alt="Meta" loading="lazy">
+                    </div>
+                    <div class="client-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" loading="lazy">
+                    </div>
+                    <div class="client-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" loading="lazy">
+                    </div>
+                    <div class="client-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google Cloud" loading="lazy">
+                    </div>
+                    <div class="client-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" loading="lazy">
+                    </div>
+                    <div class="client-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/IBM_logo.svg" alt="IBM" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Carousel Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Our Clients Say</h2>
+                <p class="section-subtitle">Hear from professionals who have transformed their careers with our training</p>
+            </div>
+            <div class="testimonials-carousel">
+                <div class="testimonials-track">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p>"NivedaSoft's SAP training program exceeded my expectations. The hands-on approach and expert instructors helped me land my dream job at a Fortune 500 company. Highly recommended!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="John Smith" loading="lazy">
+                                </div>
+                                <div class="author-info">
+                                    <h4>John Smith</h4>
+                                    <p>SAP Consultant, Microsoft</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p>"The comprehensive curriculum and practical training approach at NivedaSoft gave me the confidence to implement SAP solutions in real-world scenarios. Excellent training quality!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face" alt="Sarah Johnson" loading="lazy">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <p>SAP Analyst, Google</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p>"Outstanding training experience! The instructors are industry experts who provide real-world insights. I successfully transitioned from a non-technical background to SAP consulting."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Michael Chen" loading="lazy">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Michael Chen</h4>
+                                    <p>SAP Developer, Amazon</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p>"The corporate training program was perfectly tailored to our needs. Our team's SAP skills improved significantly, leading to better project outcomes and client satisfaction."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" alt="Emily Davis" loading="lazy">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Emily Davis</h4>
+                                    <p>IT Director, Netflix</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev-btn" aria-label="Previous testimonial">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn next-btn" aria-label="Next testimonial">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -162,9 +285,9 @@
         <div class="container">
             <div class="work-card">
                 <div class="work-content">
-                    <p class="work-tag">Let's Development</p>
+                    <p class="work-tag">Let's Develop</p>
                     <h2 class="work-title">Work<br>With Us</h2>
-                    <p class="work-text">Together we build your brightest real life</p>
+                    <p class="work-text">Together we build your brightest future with cutting-edge SAP solutions and innovative data center infrastructure</p>
                 </div>
                 <div class="work-image">
                     <div class="image-circle">
@@ -175,24 +298,11 @@
 
             <div class="stats-card">
                 <h3 class="stats-title">Trusted Partner</h3>
-                <p class="stats-subtitle">Client come usually from our strong friends and satisfied customers</p>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-number">200,000+</div>
-                        <div class="stat-label">Professionals Trained</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">70+</div>
-                        <div class="stat-label">Global Clients</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">95%</div>
-                        <div class="stat-label">Success Rate</div>
-                    </div>
-                </div>
+                <p class="stats-subtitle">Building lasting relationships through exceptional service and proven results</p>
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
