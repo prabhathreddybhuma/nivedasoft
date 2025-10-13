@@ -528,5 +528,269 @@ function showFormMessage(type, message) {
     }
 }
 
+// Mobile-specific enhancements
+document.addEventListener('DOMContentLoaded', () => {
+    // Add touch-friendly interactions
+    addTouchSupport();
+    
+    // Optimize for mobile performance
+    optimizeForMobile();
+    
+    // Add mobile-specific event listeners
+    addMobileEventListeners();
+});
+
+// Touch support for better mobile interaction
+function addTouchSupport() {
+    // Add touch class to body for CSS targeting
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        document.body.classList.add('touch-device');
+    }
+    
+    // Improve touch targets
+    const touchTargets = document.querySelectorAll('button, a, .service-card, .course-card, .testimonial-card');
+    touchTargets.forEach(target => {
+        target.style.minHeight = '44px';
+        target.style.minWidth = '44px';
+    });
+    
+    // Add touch feedback
+    document.querySelectorAll('.service-card, .course-card, .testimonial-card, .benefit-item, .why-choose-item').forEach(card => {
+        card.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.98)';
+        });
+        
+        card.addEventListener('touchend', function() {
+            this.style.transform = '';
+        });
+    });
+}
+
+// Mobile performance optimizations
+function optimizeForMobile() {
+    // Reduce animation complexity on mobile
+    if (window.innerWidth <= 768) {
+        // Disable heavy animations on mobile
+        const style = document.createElement('style');
+        style.textContent = `
+            @media (max-width: 768px) {
+                .hero-shapes .shape {
+                    animation-duration: 30s !important;
+                }
+                .hero-mesh {
+                    animation-duration: 40s !important;
+                }
+                * {
+                    animation-duration: 0.3s !important;
+                    transition-duration: 0.3s !important;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    // Lazy load images on mobile
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                        observer.unobserve(img);
+                    }
+                }
+            });
+        });
+        
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            imageObserver.observe(img);
+        });
+    }
+}
+
+// Mobile-specific event listeners
+function addMobileEventListeners() {
+    // Handle orientation change
+    window.addEventListener('orientationchange', () => {
+        setTimeout(() => {
+            // Recalculate layouts after orientation change
+            window.dispatchEvent(new Event('resize'));
+        }, 100);
+    });
+    
+    // Prevent zoom on double tap for buttons
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function (event) {
+        const now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, false);
+    
+    // Improve scroll performance on mobile
+    let ticking = false;
+    function updateScrollPosition() {
+        // Update scroll-dependent elements
+        const scrollY = window.pageYOffset;
+        const hero = document.querySelector('.hero');
+        
+        if (hero) {
+            hero.style.setProperty('--scrollY', scrollY + 'px');
+        }
+        
+        ticking = false;
+    }
+    
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(updateScrollPosition);
+            ticking = true;
+        }
+    });
+    
+    // Add swipe support for testimonials carousel on mobile
+    if (window.innerWidth <= 768) {
+        const testimonialsTrack = document.querySelector('.testimonials-track');
+        if (testimonialsTrack) {
+            let startX = 0;
+            let currentX = 0;
+            let isDragging = false;
+            
+            testimonialsTrack.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+            });
+            
+            testimonialsTrack.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                currentX = e.touches[0].clientX;
+                const diffX = currentX - startX;
+                testimonialsTrack.style.transform = `translateX(${diffX}px)`;
+            });
+            
+            testimonialsTrack.addEventListener('touchend', () => {
+                if (!isDragging) return;
+                isDragging = false;
+                
+                const diffX = currentX - startX;
+                if (Math.abs(diffX) > 50) {
+                    if (diffX > 0) {
+                        // Swipe right - previous
+                        document.querySelector('.prev-btn')?.click();
+                    } else {
+                        // Swipe left - next
+                        document.querySelector('.next-btn')?.click();
+                    }
+                }
+                
+                testimonialsTrack.style.transform = '';
+            });
+        }
+    }
+    
+    // Add pull-to-refresh prevention for better UX
+    let startY = 0;
+    document.addEventListener('touchstart', (e) => {
+        startY = e.touches[0].clientY;
+    });
+    
+    document.addEventListener('touchmove', (e) => {
+        const currentY = e.touches[0].clientY;
+        const diffY = currentY - startY;
+        
+        // Prevent pull-to-refresh when scrolling down from top
+        if (window.pageYOffset === 0 && diffY > 0) {
+            e.preventDefault();
+        }
+    });
+}
+
+// Enhanced mobile navigation
+function enhanceMobileNavigation() {
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
+    
+    if (mobileToggle && navMenu) {
+        // Add haptic feedback for mobile devices
+        mobileToggle.addEventListener('click', () => {
+            if ('vibrate' in navigator) {
+                navigator.vibrate(50);
+            }
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+                navMenu.classList.remove('active');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+        
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+                mobileToggle.focus();
+            }
+        });
+    }
+}
+
+// Initialize mobile enhancements
+document.addEventListener('DOMContentLoaded', () => {
+    enhanceMobileNavigation();
+});
+
+// Add CSS for touch devices
+const touchStyles = document.createElement('style');
+touchStyles.textContent = `
+    .touch-device .service-card:hover,
+    .touch-device .course-card:hover,
+    .touch-device .testimonial-card:hover {
+        transform: none;
+    }
+    
+    .touch-device .service-card:active,
+    .touch-device .course-card:active,
+    .touch-device .testimonial-card:active {
+        transform: scale(0.98);
+    }
+    
+    @media (max-width: 768px) {
+        .nav-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .nav-menu.active {
+            max-height: 500px;
+        }
+        
+        .nav-menu li {
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        .nav-menu.active li {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .nav-menu.active li:nth-child(1) { transition-delay: 0.1s; }
+        .nav-menu.active li:nth-child(2) { transition-delay: 0.2s; }
+        .nav-menu.active li:nth-child(3) { transition-delay: 0.3s; }
+        .nav-menu.active li:nth-child(4) { transition-delay: 0.4s; }
+        .nav-menu.active li:nth-child(5) { transition-delay: 0.5s; }
+    }
+`;
+document.head.appendChild(touchStyles);
+
 console.log('Nivedasoft Website Loaded Successfully ✨');
+console.log('Mobile optimizations applied');
 console.log('To manually trigger stats animation, run: triggerStatsAnimation()');

@@ -2894,16 +2894,1150 @@ html {
     font-size: 12px;
 }
 
-/* Responsive Design */
+/* Mobile-First Responsive Design */
+
+/* Touch-friendly improvements */
 @media (max-width: 768px) {
-    .landing-stats .stats-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+    /* Ensure minimum touch target sizes */
+    button, a, .service-card, .course-card, .testimonial-card, .benefit-item, .why-choose-item {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Improve button spacing */
+    .primary-btn, .secondary-btn, .cta-btn, .submit-btn, .course-btn, .category-cta, .service-cta {
+        min-height: 48px;
+        padding: 12px 24px;
+        font-size: 16px;
+        border-radius: 8px;
+    }
+    
+    /* Better form inputs for mobile */
+    .form-group input, .form-group select, .form-group textarea {
+        min-height: 48px;
+        font-size: 16px; /* Prevents zoom on iOS */
+        border-radius: 8px;
+    }
+    
+    /* Improve navigation touch targets */
+    .nav-link {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        padding: 12px 16px;
+    }
+    
+    .mobile-toggle {
+        min-height: 48px;
+        min-width: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Better carousel controls */
+    .carousel-btn {
+        min-height: 48px;
+        min-width: 48px;
+    }
+    
+    /* Improve social media buttons */
+    .footer-social a {
+        min-height: 48px;
+        min-width: 48px;
+    }
+    
+    /* Better spacing for mobile */
+    .container {
+        padding: 0 16px;
+    }
+    
+    .nav-container {
+        padding: 0 16px;
+    }
+    
+    /* Improve text readability on mobile */
+    body {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    
+    /* Better focus states for accessibility */
+    *:focus {
+        outline: 3px solid var(--primary-blue);
+        outline-offset: 2px;
+    }
+    
+    /* Improve scroll behavior */
+    html {
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Better image handling */
+    img {
         max-width: 100%;
+        height: auto;
+    }
+    
+    /* Improve table responsiveness */
+    table {
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+        white-space: nowrap;
     }
 }
 
-@media (max-width: 968px) {
+/* High DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .service-icon, .course-icon, .benefit-icon, .why-choose-icon, .contact-icon {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Landscape mobile optimizations */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        min-height: 100vh;
+        padding: 80px 0 40px;
+    }
+    
+    .hero-title {
+        font-size: 32px;
+    }
+    
+    .hero-subtitle {
+        font-size: 16px;
+    }
+    
+    .page-header {
+        padding: 80px 0 60px;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+}
+
+/* Base mobile styles (320px and up) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .nav-container {
+        padding: 0 15px;
+    }
+    
+    .hero {
+        min-height: 100vh;
+        padding: 100px 0 40px;
+    }
+    
+    .hero-title {
+        font-size: 28px;
+        line-height: 1.1;
+        margin-bottom: 16px;
+    }
+    
+    .hero-subtitle {
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+    
+    .hero-features {
+        gap: 8px;
+        margin-bottom: 30px;
+    }
+    
+    .feature-tag {
+        font-size: 13px;
+    }
+    
+    .feature-tag:not(:last-child)::after {
+        margin-left: 6px;
+    }
+    
+    .page-title {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+    
+    .page-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .section-title {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+    
+    .section-subtitle {
+        font-size: 14px;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 30px;
+    }
+    
+    .service-card {
+        padding: 25px 20px;
+        min-height: auto;
+    }
+    
+    .service-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+    
+    .service-title {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .service-description {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+    
+    .landing-stats .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .landing-stats .stat-card {
+        padding: 25px 20px;
+    }
+    
+    .landing-stats .stat-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+    
+    .landing-stats .stat-number {
+        font-size: 28px;
+    }
+    
+    .landing-stats .stat-label {
+        font-size: 12px;
+    }
+    
+    .work-section .container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .work-card {
+        padding: 40px 25px;
+    }
+    
+    .work-title {
+        font-size: 36px;
+    }
+    
+    .work-text {
+        font-size: 14px;
+    }
+    
+    .image-circle {
+        width: 80px;
+        height: 80px;
+        font-size: 32px;
+    }
+    
+    .stats-card {
+        padding: 30px 25px;
+    }
+    
+    .stats-title {
+        font-size: 24px;
+    }
+    
+    .stats-subtitle {
+        font-size: 14px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .footer-section {
+        text-align: center;
+    }
+    
+    .footer-section ul li a {
+        justify-content: center;
+    }
+    
+    .footer-social {
+        justify-content: center;
+        gap: 12px;
+    }
+    
+    .footer-social a {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .contact-form-container {
+        padding: 25px 20px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 14px 16px;
+        font-size: 14px;
+    }
+    
+    .submit-btn {
+        padding: 16px 24px;
+        font-size: 15px;
+    }
+    
+    .contact-item {
+        padding: 20px;
+        gap: 16px;
+    }
+    
+    .contact-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+    
+    .contact-text h4 {
+        font-size: 16px;
+    }
+    
+    .contact-text p {
+        font-size: 13px;
+    }
+    
+    .testimonial-card {
+        flex: 0 0 280px;
+        padding: 25px 20px;
+    }
+    
+    .testimonials-track {
+        gap: 15px;
+    }
+    
+    .carousel-controls {
+        margin-top: 25px;
+        gap: 15px;
+    }
+    
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+    
+    .clients-track {
+        gap: 30px;
+    }
+    
+    .client-logo {
+        width: 100px;
+        height: 50px;
+    }
+    
+    .client-logo img {
+        max-width: 80px;
+        max-height: 40px;
+    }
+    
+    .training-categories {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .category-card {
+        padding: 25px 20px;
+    }
+    
+    .category-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+    
+    .category-title {
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+    
+    .category-description {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    
+    .courses-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .course-card {
+        padding: 20px;
+    }
+    
+    .course-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+    
+    .course-card h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+    
+    .course-card p {
+        font-size: 13px;
+        margin-bottom: 12px;
+    }
+    
+    .course-duration {
+        font-size: 12px;
+        margin-bottom: 15px;
+    }
+    
+    .course-btn {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .benefit-item {
+        padding: 20px;
+    }
+    
+    .benefit-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+    
+    .benefit-item h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+    
+    .benefit-item p {
+        font-size: 13px;
+    }
+    
+    .why-choose-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .why-choose-item {
+        padding: 20px;
+    }
+    
+    .why-choose-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+    
+    .why-choose-item h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+    
+    .why-choose-item p {
+        font-size: 13px;
+    }
+    
+    .founder-details {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+        padding: 0;
+    }
+    
+    .founder-avatar {
+        width: 250px;
+        height: 300px;
+        justify-self: center;
+    }
+    
+    .founder-heading {
+        font-size: 22px;
+        text-align: center;
+    }
+    
+    .founder-name {
+        font-size: 20px;
+    }
+    
+    .founder-title {
+        font-size: 14px;
+    }
+    
+    .founder-bio, .founder-mission {
+        font-size: 13px;
+    }
+    
+    .cta-button {
+        padding: 12px 24px;
+        font-size: 13px;
+    }
+    
+    .timeline::before {
+        left: 15px;
+    }
+    
+    .timeline-item {
+        grid-template-columns: auto 1fr;
+        gap: 15px;
+        direction: ltr !important;
+    }
+    
+    .timeline-item:nth-child(even) {
+        direction: ltr !important;
+    }
+    
+    .timeline-year {
+        width: 50px;
+        height: 50px;
+        font-size: 10px;
+    }
+    
+    .timeline-content {
+        padding: 20px;
+    }
+    
+    .timeline-content h4 {
+        font-size: 16px;
+    }
+    
+    .timeline-content p {
+        font-size: 13px;
+    }
+    
+    .values-section {
+        padding: 50px 0;
+        margin-bottom: 50px;
+    }
+    
+    .values-heading {
+        font-size: 22px;
+        margin-bottom: 30px;
+    }
+    
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .value-card {
+        padding: 25px 20px;
+    }
+    
+    .value-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+    
+    .value-card h4 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    
+    .value-card p {
+        font-size: 13px;
+    }
+    
+    .about-features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .about-feature-card {
+        padding: 25px 20px;
+    }
+    
+    .about-feature-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+    
+    .about-feature-title {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+    
+    .about-feature-description {
+        font-size: 13px;
+    }
+    
+    .about-features-title {
+        font-size: 20px;
+        margin-bottom: 25px;
+    }
+    
+    .about-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .about-stat-item {
+        padding: 25px 20px;
+    }
+    
+    .about-stat-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+    
+    .about-stat-number {
+        font-size: 24px;
+    }
+    
+    .about-stat-label {
+        font-size: 13px;
+    }
+    
+    .about-visual-card {
+        height: 200px;
+        gap: 15px;
+    }
+    
+    .about-visual-card i {
+        font-size: 48px;
+    }
+    
+    .about-visual-card span {
+        font-size: 16px;
+    }
+    
+    .primary-btn, .secondary-btn {
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+        padding: 14px 24px;
+        font-size: 14px;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+/* Small tablets and large phones (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+    
+    .hero-title {
+        font-size: 36px;
+    }
+    
+    .hero-subtitle {
+        font-size: 16px;
+    }
+    
+    .page-title {
+        font-size: 2.2rem;
+    }
+    
+    .page-subtitle {
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 32px;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .service-card {
+        padding: 35px 25px;
+    }
+    
+    .service-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+    
+    .service-title {
+        font-size: 22px;
+        margin-bottom: 14px;
+    }
+    
+    .service-description {
+        font-size: 15px;
+    }
+    
+    .landing-stats .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .landing-stats .stat-card {
+        padding: 35px 25px;
+    }
+    
+    .landing-stats .stat-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .landing-stats .stat-number {
+        font-size: 36px;
+    }
+    
+    .landing-stats .stat-label {
+        font-size: 14px;
+    }
+    
+    .work-section .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .work-card {
+        padding: 50px 35px;
+    }
+    
+    .work-title {
+        font-size: 48px;
+    }
+    
+    .work-text {
+        font-size: 16px;
+    }
+    
+    .image-circle {
+        width: 100px;
+        height: 100px;
+        font-size: 40px;
+    }
+    
+    .stats-card {
+        padding: 40px 30px;
+    }
+    
+    .stats-title {
+        font-size: 28px;
+    }
+    
+    .stats-subtitle {
+        font-size: 16px;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    
+    .contact-form-container {
+        padding: 40px 30px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+    
+    .contact-item {
+        padding: 25px;
+        gap: 20px;
+    }
+    
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    
+    .contact-text h4 {
+        font-size: 18px;
+    }
+    
+    .contact-text p {
+        font-size: 14px;
+    }
+    
+    .testimonial-card {
+        flex: 0 0 350px;
+        padding: 35px 25px;
+    }
+    
+    .testimonials-track {
+        gap: 25px;
+    }
+    
+    .carousel-controls {
+        margin-top: 35px;
+        gap: 20px;
+    }
+    
+    .carousel-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 16px;
+    }
+    
+    .clients-track {
+        gap: 50px;
+    }
+    
+    .client-logo {
+        width: 130px;
+        height: 65px;
+    }
+    
+    .client-logo img {
+        max-width: 110px;
+        max-height: 55px;
+    }
+    
+    .training-categories {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+    
+    .category-card {
+        padding: 35px 30px;
+    }
+    
+    .category-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+    
+    .category-title {
+        font-size: 26px;
+        margin-bottom: 16px;
+    }
+    
+    .category-description {
+        font-size: 16px;
+        margin-bottom: 24px;
+    }
+    
+    .courses-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .course-card {
+        padding: 25px;
+    }
+    
+    .course-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
+        margin-bottom: 16px;
+    }
+    
+    .course-card h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .course-card p {
+        font-size: 14px;
+        margin-bottom: 14px;
+    }
+    
+    .course-duration {
+        font-size: 13px;
+        margin-bottom: 18px;
+    }
+    
+    .course-btn {
+        padding: 10px 18px;
+        font-size: 13px;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .benefit-item {
+        padding: 25px;
+    }
+    
+    .benefit-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
+        margin-bottom: 16px;
+    }
+    
+    .benefit-item h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .benefit-item p {
+        font-size: 14px;
+    }
+    
+    .why-choose-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .why-choose-item {
+        padding: 25px;
+    }
+    
+    .why-choose-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
+        margin-bottom: 16px;
+    }
+    
+    .why-choose-item h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .why-choose-item p {
+        font-size: 14px;
+    }
+    
+    .founder-details {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+        padding: 0;
+    }
+    
+    .founder-avatar {
+        width: 300px;
+        height: 375px;
+        justify-self: center;
+    }
+    
+    .founder-heading {
+        font-size: 28px;
+        text-align: center;
+    }
+    
+    .founder-name {
+        font-size: 24px;
+    }
+    
+    .founder-title {
+        font-size: 16px;
+    }
+    
+    .founder-bio, .founder-mission {
+        font-size: 15px;
+    }
+    
+    .cta-button {
+        padding: 14px 28px;
+        font-size: 14px;
+    }
+    
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        grid-template-columns: auto 1fr;
+        gap: 20px;
+        direction: ltr !important;
+    }
+    
+    .timeline-item:nth-child(even) {
+        direction: ltr !important;
+    }
+    
+    .timeline-year {
+        width: 60px;
+        height: 60px;
+        font-size: 12px;
+    }
+    
+    .timeline-content {
+        padding: 24px;
+    }
+    
+    .timeline-content h4 {
+        font-size: 18px;
+    }
+    
+    .timeline-content p {
+        font-size: 14px;
+    }
+    
+    .values-section {
+        padding: 60px 0;
+        margin-bottom: 60px;
+    }
+    
+    .values-heading {
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+    
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .value-card {
+        padding: 35px 25px;
+    }
+    
+    .value-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+    
+    .value-card h4 {
+        font-size: 20px;
+        margin-bottom: 14px;
+    }
+    
+    .value-card p {
+        font-size: 15px;
+    }
+    
+    .about-features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .about-feature-card {
+        padding: 35px 25px;
+    }
+    
+    .about-feature-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+    
+    .about-feature-title {
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+    
+    .about-feature-description {
+        font-size: 15px;
+    }
+    
+    .about-features-title {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+    
+    .about-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .about-stat-item {
+        padding: 35px 25px;
+    }
+    
+    .about-stat-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+    
+    .about-stat-number {
+        font-size: 32px;
+    }
+    
+    .about-stat-label {
+        font-size: 15px;
+    }
+    
+    .about-visual-card {
+        height: 250px;
+        gap: 20px;
+    }
+    
+    .about-visual-card i {
+        font-size: 56px;
+    }
+    
+    .about-visual-card span {
+        font-size: 18px;
+    }
+    
+    .primary-btn, .secondary-btn {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+        padding: 16px 32px;
+        font-size: 15px;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+
+/* Tablets (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
     .nav-menu {
         display: none;
         position: absolute;
@@ -2924,357 +4058,951 @@ html {
     .mobile-toggle {
         display: block;
     }
-
+    
     .hero-title {
-        font-size: 42px;
-    }
-
-    .hero-subtitle {
-        font-size: 16px;
-    }
-
-    .work-section .container {
-        grid-template-columns: 1fr;
-    }
-
-    .work-title {
         font-size: 48px;
     }
-
-    .stats-grid {
-        grid-template-columns: 1fr;
+    
+    .hero-subtitle {
+        font-size: 18px;
     }
-
-    .landing-stats .stats-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        max-width: 100%;
+    
+    .page-title {
+        font-size: 2.8rem;
     }
-
-    .landing-stats .stat-card {
-        padding: 30px 20px;
+    
+    .page-subtitle {
+        font-size: 1.1rem;
     }
-
-    .landing-stats .stat-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
+    
+    .section-title {
+        font-size: 36px;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .service-card {
+        padding: 40px 30px;
+    }
+    
+    .service-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
+        margin-bottom: 22px;
+    }
+    
+    .service-title {
+        font-size: 24px;
         margin-bottom: 16px;
     }
-
+    
+    .service-description {
+        font-size: 16px;
+    }
+    
+    .landing-stats .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+    
+    .landing-stats .stat-card {
+        padding: 40px 30px;
+    }
+    
+    .landing-stats .stat-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
+        margin-bottom: 22px;
+    }
+    
     .landing-stats .stat-number {
-        font-size: 32px;
+        font-size: 42px;
     }
-
+    
     .landing-stats .stat-label {
-        font-size: 13px;
+        font-size: 15px;
     }
-
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .about-stats-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .about-stat-item {
-        padding: 30px 20px;
-    }
-
-    .about-stat-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
-
-    .about-stat-number {
-        font-size: 28px;
-    }
-
-    .about-features-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .about-feature-card {
-        padding: 30px 20px;
-    }
-
-    .about-feature-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
-
-    .about-features-title {
-        font-size: 24px;
-        margin-bottom: 30px;
-    }
-
-
-    .trainings-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .founder-details {
-        grid-template-columns: 1fr;
-        text-align: center;
+    
+    .work-section .container {
+        grid-template-columns: 1fr 1fr;
         gap: 40px;
-        padding: 0;
     }
-
-    .founder-avatar {
-        width: 300px;
-        height: 375px;
-        justify-self: center;
+    
+    .work-card {
+        padding: 60px 40px;
     }
-
-    .founder-heading {
+    
+    .work-title {
+        font-size: 56px;
+    }
+    
+    .work-text {
+        font-size: 16px;
+    }
+    
+    .image-circle {
+        width: 110px;
+        height: 110px;
+        font-size: 44px;
+    }
+    
+    .stats-card {
+        padding: 40px 35px;
+    }
+    
+    .stats-title {
+        font-size: 30px;
+    }
+    
+    .stats-subtitle {
+        font-size: 16px;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+    }
+    
+    .contact-form-container {
+        padding: 45px 35px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    
+    .contact-item {
+        padding: 24px;
+        gap: 24px;
+    }
+    
+    .contact-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 22px;
+    }
+    
+    .contact-text h4 {
+        font-size: 20px;
+    }
+    
+    .contact-text p {
+        font-size: 15px;
+    }
+    
+    .testimonial-card {
+        flex: 0 0 380px;
+        padding: 40px 30px;
+    }
+    
+    .testimonials-track {
+        gap: 30px;
+    }
+    
+    .carousel-controls {
+        margin-top: 40px;
+        gap: 20px;
+    }
+    
+    .carousel-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+    }
+    
+    .clients-track {
+        gap: 60px;
+    }
+    
+    .client-logo {
+        width: 140px;
+        height: 70px;
+    }
+    
+    .client-logo img {
+        max-width: 120px;
+        max-height: 60px;
+    }
+    
+    .training-categories {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .category-card {
+        padding: 40px 35px;
+    }
+    
+    .category-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 32px;
+        margin-bottom: 24px;
+    }
+    
+    .category-title {
         font-size: 28px;
-        text-align: center;
+        margin-bottom: 16px;
     }
-
-    .founder-name {
+    
+    .category-description {
+        font-size: 16px;
+        margin-bottom: 24px;
+    }
+    
+    .courses-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+    
+    .course-card {
+        padding: 30px 25px;
+    }
+    
+    .course-icon {
+        width: 60px;
+        height: 60px;
         font-size: 24px;
+        margin-bottom: 20px;
     }
-
+    
+    .course-card h3 {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+    
+    .course-card p {
+        font-size: 15px;
+        margin-bottom: 16px;
+    }
+    
+    .course-duration {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    
+    .course-btn {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+    
+    .benefit-item {
+        padding: 30px 25px;
+    }
+    
+    .benefit-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .benefit-item h3 {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+    
+    .benefit-item p {
+        font-size: 15px;
+    }
+    
+    .why-choose-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .why-choose-item {
+        padding: 30px 25px;
+    }
+    
+    .why-choose-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .why-choose-item h3 {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+    
+    .why-choose-item p {
+        font-size: 15px;
+    }
+    
+    .founder-details {
+        grid-template-columns: 1fr 2fr;
+        gap: 60px;
+        align-items: center;
+    }
+    
+    .founder-avatar {
+        width: 350px;
+        height: 450px;
+        justify-self: start;
+    }
+    
+    .founder-heading {
+        font-size: 36px;
+        text-align: left;
+    }
+    
+    .founder-name {
+        font-size: 28px;
+    }
+    
+    .founder-title {
+        font-size: 17px;
+    }
+    
     .founder-bio, .founder-mission {
         font-size: 15px;
     }
-
+    
     .cta-button {
-        padding: 14px 28px;
-        font-size: 14px;
+        padding: 16px 32px;
+        font-size: 15px;
     }
-
+    
     .timeline::before {
-        left: 20px;
+        left: 50%;
     }
-
+    
     .timeline-item {
-        grid-template-columns: auto 1fr;
-        gap: 20px;
-        direction: ltr !important;
+        grid-template-columns: 1fr auto 1fr;
+        gap: 32px;
+        align-items: center;
     }
-
+    
     .timeline-item:nth-child(even) {
-        direction: ltr !important;
+        direction: rtl;
     }
-
+    
+    .timeline-item:nth-child(even) .timeline-content {
+        direction: ltr;
+    }
+    
     .timeline-year {
-        width: 60px;
-        height: 60px;
-        font-size: 12px;
+        width: 70px;
+        height: 70px;
+        font-size: 13px;
     }
-
+    
+    .timeline-content {
+        padding: 24px;
+    }
+    
+    .timeline-content h4 {
+        font-size: 18px;
+    }
+    
+    .timeline-content p {
+        font-size: 15px;
+    }
+    
     .values-section {
-        padding: 60px 0;
-        margin-bottom: 60px;
+        padding: 80px 0;
+        margin-bottom: 80px;
     }
-
+    
     .values-heading {
+        font-size: 36px;
+        margin-bottom: 50px;
+    }
+    
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+    
+    .value-card {
+        padding: 40px 30px;
+    }
+    
+    .value-icon {
+        width: 75px;
+        height: 75px;
+        font-size: 30px;
+        margin-bottom: 24px;
+    }
+    
+    .value-card h4 {
+        font-size: 22px;
+        margin-bottom: 16px;
+    }
+    
+    .value-card p {
+        font-size: 16px;
+    }
+    
+    .about-features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .about-feature-card {
+        padding: 40px 30px;
+    }
+    
+    .about-feature-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
+        margin-bottom: 24px;
+    }
+    
+    .about-feature-title {
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+    
+    .about-feature-description {
+        font-size: 16px;
+    }
+    
+    .about-features-title {
         font-size: 28px;
         margin-bottom: 40px;
     }
-
-    .values-grid {
-        grid-template-columns: 1fr;
+    
+    .about-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
         gap: 30px;
     }
-
-    .value-card {
-        padding: 30px 20px;
+    
+    .about-stat-item {
+        padding: 40px 30px;
     }
-
-    .value-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 24px;
-        margin-bottom: 20px;
+    
+    .about-stat-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
+        margin-bottom: 24px;
     }
-
-    .value-card h4 {
-        font-size: 18px;
-        margin-bottom: 12px;
-    }
-
-    .value-card p {
-        font-size: 14px;
-    }
-
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 40px;
-    }
-
-    .footer-section {
-        text-align: center;
-    }
-
-    .footer-section ul li a {
-        justify-content: center;
-    }
-
-    .footer-social {
-        justify-content: center;
-    }
-
-}
-
-@media (max-width: 640px) {
-    .hero {
-        min-height: 100vh;
-        padding: 120px 0 60px;
-    }
-
-    .hero-title {
+    
+    .about-stat-number {
         font-size: 36px;
     }
-
-    .page-title {
-        font-size: 2.2rem;
+    
+    .about-stat-label {
+        font-size: 16px;
     }
-
-    .page-subtitle {
-        font-size: 1rem;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
+    
+    .about-visual-card {
+        height: 280px;
         gap: 20px;
-        margin-top: 40px;
+    }
+    
+    .about-visual-card i {
+        font-size: 60px;
+    }
+    
+    .about-visual-card span {
+        font-size: 20px;
+    }
+    
+    .primary-btn, .secondary-btn {
+        width: auto;
+        max-width: none;
+        text-align: center;
+        padding: 18px 40px;
+        font-size: 16px;
+    }
+    
+    .hero-cta {
+        flex-direction: row;
+        gap: 20px;
+    }
+}
+
+/* Desktop and larger screens (1025px and up) */
+@media (min-width: 1025px) {
+    .nav-menu {
+        display: flex;
     }
 
+    .mobile-toggle {
+        display: none;
+    }
+    
+    .hero-title {
+        font-size: 64px;
+    }
+    
+    .hero-subtitle {
+        font-size: 18px;
+    }
+    
+    .page-title {
+        font-size: 3rem;
+    }
+    
+    .page-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 42px;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+    
     .service-card {
-        padding: 30px 20px;
+        padding: 40px 30px;
     }
-
+    
     .service-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 32px;
+        margin-bottom: 24px;
+    }
+    
+    .service-title {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+    
+    .service-description {
+        font-size: 16px;
+    }
+    
+    .landing-stats .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+    }
+    
+    .landing-stats .stat-card {
+        padding: 50px 30px;
+    }
+    
+    .landing-stats .stat-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 32px;
+        margin-bottom: 24px;
+    }
+    
+    .landing-stats .stat-number {
+        font-size: 48px;
+    }
+    
+    .landing-stats .stat-label {
+        font-size: 16px;
+    }
+    
+    .work-section .container {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+    
+    .work-card {
+        padding: 60px;
+    }
+    
+    .work-title {
+        font-size: 64px;
+    }
+    
+    .work-text {
+        font-size: 16px;
+    }
+    
+    .image-circle {
+        width: 120px;
+        height: 120px;
+        font-size: 48px;
+    }
+    
+    .stats-card {
+        padding: 40px;
+    }
+    
+    .stats-title {
+        font-size: 32px;
+    }
+    
+    .stats-subtitle {
+        font-size: 16px;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+    }
+    
+    .contact-form-container {
+        padding: 48px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    
+    .contact-item {
+        padding: 24px;
+        gap: 24px;
+    }
+    
+    .contact-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 22px;
+    }
+    
+    .contact-text h4 {
+        font-size: 20px;
+    }
+    
+    .contact-text p {
+        font-size: 15px;
+    }
+    
+    .testimonial-card {
+        flex: 0 0 400px;
+        padding: 40px;
+    }
+    
+    .testimonials-track {
+        gap: 30px;
+    }
+    
+    .carousel-controls {
+        margin-top: 40px;
+        gap: 20px;
+    }
+    
+    .carousel-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+    }
+    
+    .clients-track {
+        gap: 60px;
+    }
+    
+    .client-logo {
+        width: 150px;
+        height: 80px;
+    }
+    
+    .client-logo img {
+        max-width: 120px;
+        max-height: 60px;
+    }
+    
+    .training-categories {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+    
+    .category-card {
+        padding: 40px;
+    }
+    
+    .category-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 32px;
+        margin-bottom: 24px;
+    }
+    
+    .category-title {
+        font-size: 28px;
+        margin-bottom: 16px;
+    }
+    
+    .category-description {
+        font-size: 16px;
+        margin-bottom: 24px;
+    }
+    
+    .courses-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+    
+    .course-card {
+        padding: 30px;
+    }
+    
+    .course-icon {
         width: 60px;
         height: 60px;
         font-size: 24px;
         margin-bottom: 20px;
     }
-
-    .service-title {
+    
+    .course-card h3 {
         font-size: 20px;
         margin-bottom: 12px;
     }
-
-    .service-description {
-        font-size: 14px;
-        line-height: 1.6;
+    
+    .course-card p {
+        font-size: 15px;
+        margin-bottom: 16px;
     }
-
-    .training-categories {
-        grid-template-columns: 1fr;
+    
+    .course-duration {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    
+    .course-btn {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 30px;
     }
-
-    .category-card {
-        padding: 30px 20px;
+    
+    .benefit-item {
+        padding: 30px;
     }
-
-    .courses-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .benefits-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .contact-form-container {
-        padding: 30px 20px;
-    }
-
-    .form-row {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-
-
-    .why-choose-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .clients-track {
-        gap: 40px;
-    }
-
-    .client-logo {
-        width: 120px;
+    
+    .benefit-icon {
+        width: 60px;
         height: 60px;
+        font-size: 24px;
+        margin-bottom: 20px;
     }
-
-    .client-logo img {
-        max-width: 100px;
-        max-height: 50px;
+    
+    .benefit-item h3 {
+        font-size: 20px;
+        margin-bottom: 12px;
     }
-
-    .testimonial-card {
-        flex: 0 0 300px;
-        padding: 30px 20px;
+    
+    .benefit-item p {
+        font-size: 15px;
     }
-
-    .testimonials-track {
-        gap: 20px;
+    
+    .why-choose-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
     }
-
-    .carousel-controls {
-        margin-top: 30px;
+    
+    .why-choose-item {
+        padding: 30px;
     }
-
-    .carousel-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
+    
+    .why-choose-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        margin-bottom: 20px;
     }
-
-
-
-    .section-title {
+    
+    .why-choose-item h3 {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+    
+    .why-choose-item p {
+        font-size: 15px;
+    }
+    
+    .founder-details {
+        grid-template-columns: 1fr 2fr;
+        gap: 80px;
+        align-items: center;
+    }
+    
+    .founder-avatar {
+        width: 400px;
+        height: 500px;
+        justify-self: start;
+    }
+    
+    .founder-heading {
+        font-size: 42px;
+        text-align: left;
+    }
+    
+    .founder-name {
         font-size: 32px;
     }
-
-    .work-card,
-    .stats-card {
-        padding: 40px 30px;
+    
+    .founder-title {
+        font-size: 18px;
     }
-
-    .hero-features {
+    
+    .founder-bio, .founder-mission {
+        font-size: 16px;
+    }
+    
+    .cta-button {
+        padding: 16px 32px;
+        font-size: 16px;
+    }
+    
+    .timeline::before {
+        left: 50%;
+    }
+    
+    .timeline-item {
+        grid-template-columns: 1fr auto 1fr;
+        gap: 32px;
+        align-items: center;
+    }
+    
+    .timeline-item:nth-child(even) {
+        direction: rtl;
+    }
+    
+    .timeline-item:nth-child(even) .timeline-content {
+        direction: ltr;
+    }
+    
+    .timeline-year {
+        width: 80px;
+        height: 80px;
         font-size: 14px;
     }
-
-    .feature-tag:not(:last-child)::after {
-        margin-left: 8px;
+    
+    .timeline-content {
+        padding: 24px;
     }
-
-    .hero-cta {
-        flex-direction: column;
-        gap: 16px;
+    
+    .timeline-content h4 {
+        font-size: 18px;
     }
-
+    
+    .timeline-content p {
+        font-size: 15px;
+    }
+    
+    .values-section {
+        padding: 100px 0;
+        margin-bottom: 100px;
+    }
+    
+    .values-heading {
+        font-size: 48px;
+        margin-bottom: 60px;
+    }
+    
+    .values-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 40px;
+    }
+    
+    .value-card {
+        padding: 40px 30px;
+    }
+    
+    .value-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 32px;
+        margin-bottom: 24px;
+    }
+    
+    .value-card h4 {
+        font-size: 22px;
+        margin-bottom: 16px;
+    }
+    
+    .value-card p {
+        font-size: 16px;
+    }
+    
+    .about-features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+    
+    .about-feature-card {
+        padding: 40px 30px;
+    }
+    
+    .about-feature-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
+        margin-bottom: 24px;
+    }
+    
+    .about-feature-title {
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+    
+    .about-feature-description {
+        font-size: 16px;
+    }
+    
+    .about-features-title {
+        font-size: 36px;
+        margin-bottom: 60px;
+    }
+    
+    .about-stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+    }
+    
+    .about-stat-item {
+        padding: 40px 20px;
+    }
+    
+    .about-stat-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 32px;
+        margin-bottom: 24px;
+    }
+    
+    .about-stat-number {
+        font-size: 36px;
+    }
+    
+    .about-stat-label {
+        font-size: 16px;
+    }
+    
+    .about-visual-card {
+        height: 300px;
+        gap: 20px;
+    }
+    
+    .about-visual-card i {
+        font-size: 64px;
+    }
+    
+    .about-visual-card span {
+        font-size: 20px;
+    }
+    
     .primary-btn, .secondary-btn {
-        width: 100%;
-        max-width: 280px;
+        width: auto;
+        max-width: none;
         text-align: center;
+        padding: 18px 40px;
+        font-size: 16px;
+    }
+    
+    .hero-cta {
+        flex-direction: row;
+        gap: 20px;
     }
 }
