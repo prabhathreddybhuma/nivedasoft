@@ -12,13 +12,13 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">Nivedasoft</a>
+            <a href="index.html" class="logo">Nivedasoft</a>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About Us</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#trainings" class="nav-link">SAP Trainings</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="trainings.html" class="nav-link">SAP Trainings</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
             <button class="cta-btn">Let's Talk</button>
             <button class="mobile-toggle" id="mobileToggle">
@@ -73,147 +73,85 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about-section" id="about">
+    <!-- Services Section -->
+    <section class="services-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">About Niveda</h2>
-                <p class="section-subtitle">Pioneering SAP solutions and enterprise training since 2015</p>
+                <h2 class="section-title">Our Core Services</h2>
+                <p class="section-subtitle">Comprehensive SAP solutions and infrastructure services designed to accelerate your digital transformation journey</p>
             </div>
             
-            <!-- Company Story -->
-            <div class="about-grid">
-                <div class="about-content">
-                    <h3 class="about-heading">Our Journey</h3>
-                    <p>Founded in 2015 by a group of passionate technology professionals, Niveda Software Solutions has evolved into a leading provider of SAP ERP training and consulting services. With decades of collective experience working with global enterprises and Fortune 500 companies, we specialize in SAP solutions, enterprise data-center infrastructure, cloud technologies, and digital transformation enablement.</p>
-                    <p>Our mission is to bridge the gap between theoretical knowledge and industry practice. We combine hands‑on learning, industry‑aligned modules, and personalized mentoring to ensure every participant gains confidence and job‑ready skills that translate directly to workplace success.</p>
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <h4 class="stat-number">200,000+</h4>
-                            <p class="stat-label">Professionals Trained</p>
-                        </div>
-                        <div class="stat-item">
-                            <h4 class="stat-number">70+</h4>
-                            <p class="stat-label">Global Clients Served</p>
-                        </div>
+            <div class="services-grid">
+                <div class="service-card" onclick="window.location.href='services.html'">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
                     </div>
+                    <h3 class="service-title">Managed Data Center Services</h3>
+                    <p class="service-description">
+                        A state of art data center delivering cutting edge performance, security and scalability with advance infrastructure, automation and energy efficacy technologies. We ensure uninterrupted operations and optimal data management for mission critical operations.
+                    </p>
                 </div>
-                <div class="about-visual">
-                    <div class="about-visual-card">
-                        <i class="fas fa-building"></i>
-                        <span>Enterprise Excellence</span>
+
+                <div class="service-card" onclick="window.location.href='services.html'">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
                     </div>
+                    <h3 class="service-title">Cloud Hosting</h3>
+                    <p class="service-description">
+                        Enabling companies to accelerate the innovation by developing, deploying and managing applications seamlessly in a secure scalable cloud environment with built-in tools and automation.
+                    </p>
+                </div>
+
+                <div class="service-card" onclick="window.location.href='services.html'">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="service-title">SAP Consulting</h3>
+                    <p class="service-description">
+                        Tailored SAP consulting services to enhance organizational performance and efficiency. Our team of certified consultants provides comprehensive SAP implementation, optimization, and ongoing support.
+                    </p>
+                </div>
+
+                <div class="service-card" onclick="window.location.href='trainings.html'">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="service-title">Comprehensive SAP Training</h3>
+                    <p class="service-description">
+                        Empowering professional with in-depth knowledge across all SAP modules, from core ERP to advanced analytics and cloud solutions. Our holistic training approach ensures hands-on experience practical insights and industry ready expertise for real-world success.
+                    </p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Founder & CEO Section -->
-            <div class="founder-section">
-                <div class="founder-content">
-                    <div class="founder-info">
-                        <h3 class="founder-heading">Leadership</h3>
-                        <div class="founder-details">
-                            <div class="founder-avatar">
-                                <img src="founder-headshot.png" alt="VENKATA SRINIVASA REDDY THIGURU - Founder & CEO" class="founder-photo">
-                                <div class="founder-photo-placeholder">
-                                    <i class="fas fa-user-tie"></i>
-                                    <span>Add Headshot</span>
-                                </div>
-                            </div>
-                            <div class="founder-text">
-                                <div class="founder-quote">
-                                    <div class="quote-mark quote-start">"</div>
-                                    <div class="quote-content">
-                                        <h4 class="founder-name">VENKATA SRINIVASA REDDY THIGURU</h4>
-                                        <p class="founder-title">Founder & Chief Executive Officer</p>
-                                        <p class="founder-bio">With over 20 years of experience in enterprise technology and SAP implementations, I founded Niveda Software Solutions with a vision to democratize SAP education and make enterprise-grade training accessible to professionals worldwide. Our commitment to quality and credibility drives everything we do.</p>
-                                        <p class="founder-mission">We started with a dream: to provide professionals with better opportunities through world-class SAP training and consulting services. This has now become our life's commitment and dedication to transforming careers and businesses globally.</p>
-                                        <div class="founder-credentials">
-                                            <span class="credential">SAP Certified Consultant</span>
-                                            <span class="credential">Enterprise Technology Expert</span>
-                                            <span class="credential">Digital Transformation Leader</span>
-                                        </div>
-                                    </div>
-                                    <div class="quote-mark quote-end">"</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <!-- Stats Section -->
+    <section class="landing-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" data-target="200000">0</div>
+                    <div class="stat-label">Professionals Trained</div>
                 </div>
-            </div>
-
-            <!-- Company Timeline -->
-            <div class="timeline-section">
-                <h3 class="timeline-heading">Our Growth Timeline</h3>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-year">2015</div>
-                        <div class="timeline-content">
-                            <h4>Company Founded</h4>
-                            <p>Niveda Software Solutions was established with a mission to provide world-class SAP training and consulting services.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2017</div>
-                        <div class="timeline-content">
-                            <h4>Data Center Launch</h4>
-                            <p>Launched our state-of-the-art data center infrastructure to support enterprise clients with reliable hosting solutions.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2019</div>
-                        <div class="timeline-content">
-                            <h4>Global Expansion</h4>
-                            <p>Expanded operations internationally, serving clients across North America, Europe, and Asia-Pacific regions.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2021</div>
-                        <div class="timeline-content">
-                            <h4>Cloud Services</h4>
-                            <p>Introduced comprehensive cloud hosting and managed services to support digital transformation initiatives.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2023</div>
-                        <div class="timeline-content">
-                            <h4>AI Integration</h4>
-                            <p>Integrated AI-powered learning platforms and automated training delivery systems for enhanced learning experiences.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2025</div>
-                        <div class="timeline-content">
-                            <h4>Industry Leadership</h4>
-                            <p>Recognized as a leading SAP training provider with 200,000+ professionals trained and 70+ global clients.</p>
-                        </div>
-                    </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="100">0</div>
+                    <div class="stat-label">Hosted Servers</div>
                 </div>
-            </div>
-
-            <!-- Values & Mission -->
-            <div class="values-section">
-                <h3 class="values-heading">Our Core Values</h3>
-                <div class="values-grid">
-                    <div class="value-card">
-                        <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
-                        <h4>Innovation</h4>
-                        <p>Continuously evolving our training methodologies and technology solutions to stay ahead of industry trends.</p>
-                    </div>
-                    <div class="value-card">
-                        <div class="value-icon"><i class="fas fa-users"></i></div>
-                        <h4>Excellence</h4>
-                        <p>Delivering world-class training and consulting services that exceed client expectations and industry standards.</p>
-                    </div>
-                    <div class="value-card">
-                        <div class="value-icon"><i class="fas fa-handshake"></i></div>
-                        <h4>Partnership</h4>
-                        <p>Building long-term relationships with clients, partners, and professionals based on trust and mutual success.</p>
-                    </div>
-                    <div class="value-card">
-                        <div class="value-icon"><i class="fas fa-globe"></i></div>
-                        <h4>Global Reach</h4>
-                        <p>Making enterprise-grade SAP education accessible to professionals worldwide through innovative delivery methods.</p>
-                    </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="9">0</div>
+                    <div class="stat-label">End to End SAP Implementations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="70">0</div>
+                    <div class="stat-label">Global Clients Served</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="10000">0</div>
+                    <div class="stat-label">Corporate Trainings Delivered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="95">0</div>
+                    <div class="stat-label">Success Rate</div>
                 </div>
             </div>
         </div>
@@ -240,164 +178,16 @@
                 <p class="stats-subtitle">Client come usually from our strong friends and satisfied customers</p>
                 <div class="stats-grid">
                     <div class="stat-item">
-                        <h4 class="stat-number">200,000+</h4>
-                        <p class="stat-label">Professionals Trained</p>
+                        <div class="stat-number">200,000+</div>
+                        <div class="stat-label">Professionals Trained</div>
                     </div>
                     <div class="stat-item">
-                        <h4 class="stat-number">70+</h4>
-                        <p class="stat-label">Global Clients Served</p>
+                        <div class="stat-number">70+</div>
+                        <div class="stat-label">Global Clients</div>
                     </div>
-                </div>
-                <button class="secondary-btn">Let's Work Together</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Landing Stats Section -->
-    <section class="landing-stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-icon"><i class="fas fa-user-check"></i></div>
-                    <h4 class="stat-number">200,000</h4>
-                    <p class="stat-label">Professionals Trained</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-icon"><i class="fas fa-server"></i></div>
-                    <h4 class="stat-number">100</h4>
-                    <p class="stat-label">Hosted Servers</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
-                    <h4 class="stat-number">9</h4>
-                    <p class="stat-label">End to End SAP Implementations</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-icon"><i class="fas fa-globe"></i></div>
-                    <h4 class="stat-number">70+</h4>
-                    <p class="stat-label">Global Clients Served</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-                    <h4 class="stat-number">10,000+</h4>
-                    <p class="stat-label">Corporate Trainings Delivered</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-icon"><i class="fas fa-trophy"></i></div>
-                    <h4 class="stat-number">95%</h4>
-                    <p class="stat-label">Success Rate</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trainings Section -->
-    <section class="trainings-section" id="trainings">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">SAP Trainings</h2>
-                <p class="section-subtitle">Premier SAP education programs for professionals and enterprises</p>
-            </div>
-
-            <div class="trainings-grid">
-                <div class="training-card">
-                    <div class="training-icon"><i class="fas fa-user-graduate"></i></div>
-                    <h3>Freshers & Professionals</h3>
-                    <p>Comprehensive SAP modules, hands‑on practical training, industry‑certified instructors, and job‑ready certification.</p>
-                    <ul class="training-points">
-                        <li><i class="fas fa-check"></i> Comprehensive modules coverage</li>
-                        <li><i class="fas fa-check"></i> Practical, scenario‑based labs</li>
-                        <li><i class="fas fa-check"></i> Flexible schedules</li>
-                    </ul>
-                </div>
-                <div class="training-card">
-                    <div class="training-icon"><i class="fas fa-building"></i></div>
-                    <h3>Corporate Programs</h3>
-                    <p>Customized curricula delivered on‑site or remote, aligned to your industry and ROI‑focused outcomes.</p>
-                    <ul class="training-points">
-                        <li><i class="fas fa-check"></i> Tailored curriculum design</li>
-                        <li><i class="fas fa-check"></i> On‑site or remote delivery</li>
-                        <li><i class="fas fa-check"></i> Team‑based learning</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="courses-preview">
-                <h3 class="courses-heading">Popular Courses</h3>
-                <div class="courses-grid">
-                    <div class="course-card">
-                        <div class="course-code">S4H00</div>
-                        <h4 class="course-title">SAP S/4HANA Overview</h4>
-                        <p class="course-desc">Foundation in S/4HANA architecture, Fiori UX, and core business processes.</p>
-                        <div class="course-meta"><span>Level: Intro</span><span>Duration: 5 days</span></div>
-                    </div>
-                    <div class="course-card">
-                        <div class="course-code">TS410</div>
-                        <h4 class="course-title">Integrated Business Processes in SAP S/4HANA</h4>
-                        <p class="course-desc">End‑to‑end processes across procurement, sales, production, and finance.</p>
-                        <div class="course-meta"><span>Level: Intermediate</span><span>Duration: 10 days</span></div>
-                    </div>
-                    <div class="course-card">
-                        <div class="course-code">S4D400</div>
-                        <h4 class="course-title">Basic ABAP Programming</h4>
-                        <p class="course-desc">Modern ABAP techniques, tools, and fundamentals to build SAP applications.</p>
-                        <div class="course-meta"><span>Level: Beginner</span><span>Duration: 5 days</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services-section" id="services">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Our Core Services</h2>
-                <p class="section-subtitle">Comprehensive SAP solutions and infrastructure services designed to accelerate your digital transformation</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-server service-icon"></i>
-                    <h3>Managed Data Center Services</h3>
-                    <p>A state of art data center delivering cutting edge performance, security and scalability with advance infrastructure, automation and energy efficacy technologies.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-cloud service-icon"></i>
-                    <h3>Cloud Hosting</h3>
-                    <p>Enabling companies to accelerate innovation by developing, deploying and managing applications seamlessly in a secure scalable cloud environment.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-handshake service-icon"></i>
-                    <h3>SAP Consulting</h3>
-                    <p>Tailored SAP consulting services to enhance organizational performance. Our certified consultants provide comprehensive implementation and support.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-graduation-cap service-icon"></i>
-                    <h3>Comprehensive SAP Training</h3>
-                    <p>Empowering professionals with in-depth knowledge across all SAP modules, from core ERP to advanced analytics and cloud solutions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
-        <div class="container">
-            <div class="contact-content">
-                <h2 class="section-title">Let's Work Together</h2>
-                <p class="section-subtitle">Get in touch with our experts</p>
-                <div class="contact-info">
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>info@nivedasoft.com</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+91-99667 10333</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Hyderabad, Telangana 500072</span>
+                    <div class="stat-item">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">Success Rate</div>
                     </div>
                 </div>
             </div>
@@ -406,41 +196,45 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>NivedaSoft</h3>
-                    <p>Transforming businesses through comprehensive SAP solutions and cutting-edge data center infrastructure since 2015.</p>
-                    <div class="footer-social">
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <div class="footer-links">
-                        <a href="#home">Home</a>
-                        <a href="#about">About Us</a>
-                        <a href="#services">Services</a>
-                        <a href="#trainings">SAP Trainings</a>
-                        <a href="#contact">Contact</a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Services</h4>
-                    <div class="footer-links">
-                        <a href="#services">Data Center Services</a>
-                        <a href="#services">Cloud Hosting</a>
-                        <a href="#services">SAP Consulting</a>
-                        <a href="#trainings">SAP Training</a>
-                    </div>
-                </div>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>NivedaSoft</h3>
+                <p>Your trusted partner in SAP excellence and data center innovation. Empowering professionals worldwide with world-class training and consulting services.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 NivedaSoft. All rights reserved. | Sai Nilayam, HMT Sathavahana Nagar, Kukatpally, Hyderabad, Telangana 500072</p>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="trainings.html">SAP Trainings</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="services.html">SAP Consulting</a></li>
+                    <li><a href="services.html">Data Center Services</a></li>
+                    <li><a href="services.html">Cloud Hosting</a></li>
+                    <li><a href="trainings.html">SAP Training</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-envelope"></i> info@nivedasoft.com</p>
+                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Business Ave, Tech City, TC 12345</p>
+            </div>
+        </div>
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 NivedaSoft. All rights reserved.</p>
         </div>
     </footer>
 
