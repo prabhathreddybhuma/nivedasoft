@@ -412,5 +412,121 @@ window.triggerStatsAnimation = () => {
 };
 
 
+// Contact Form Handling
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Validate form before submission
+            if (!validateContactForm(this)) {
+                showFormMessage('error', 'Please fill in all required fields correctly.');
+                return;
+            }
+            
+            // Get form data
+            const formData = new FormData(this);
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalBtnText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            try {
+                // Simulate form submission (replace with actual endpoint)
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                // Show success message
+                showFormMessage('success', 'Thank you! Your message has been sent successfully. We\'ll get back to you soon.');
+                
+                // Reset form
+                this.reset();
+                
+            } catch (error) {
+                // Show error message
+                showFormMessage('error', 'Sorry, there was an error sending your message. Please try again.');
+            } finally {
+                // Reset button state
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            }
+        });
+    }
+});
+
+// Form validation
+function validateContactForm(form) {
+    const requiredFields = form.querySelectorAll('[required]');
+    let isValid = true;
+    
+    requiredFields.forEach(field => {
+        const value = field.value.trim();
+        const fieldGroup = field.closest('.form-group');
+        
+        // Remove existing error styling
+        field.classList.remove('error');
+        const existingError = fieldGroup.querySelector('.error-message');
+        if (existingError) {
+            existingError.remove();
+        }
+        
+        // Check if field is empty
+        if (!value) {
+            field.classList.add('error');
+            const errorMsg = document.createElement('span');
+            errorMsg.className = 'error-message';
+            errorMsg.textContent = 'This field is required';
+            fieldGroup.appendChild(errorMsg);
+            isValid = false;
+        }
+        
+        // Email validation
+        if (field.type === 'email' && value) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(value)) {
+                field.classList.add('error');
+                const errorMsg = document.createElement('span');
+                errorMsg.className = 'error-message';
+                errorMsg.textContent = 'Please enter a valid email address';
+                fieldGroup.appendChild(errorMsg);
+                isValid = false;
+            }
+        }
+    });
+    
+    return isValid;
+}
+
+// Show form feedback messages
+function showFormMessage(type, message) {
+    // Remove existing messages
+    const existingMessage = document.querySelector('.form-message');
+    if (existingMessage) {
+        existingMessage.remove();
+    }
+    
+    // Create new message
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `form-message ${type}`;
+    messageDiv.innerHTML = `
+        <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+        <span>${message}</span>
+    `;
+    
+    // Insert message at the top of the form
+    const contactForm = document.getElementById('contactForm');
+    contactForm.insertBefore(messageDiv, contactForm.firstChild);
+    
+    // Auto-remove success messages after 5 seconds
+    if (type === 'success') {
+        setTimeout(() => {
+            messageDiv.remove();
+        }, 5000);
+    }
+}
+
 console.log('Nivedasoft Website Loaded Successfully ✨');
 console.log('To manually trigger stats animation, run: triggerStatsAnimation()');
