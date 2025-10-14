@@ -308,7 +308,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 800); // Initial delay before starting animations
 });
 
-// Enhanced hero parallax and navbar integration
+// Synchronize testimonial animations - More aggressive approach
+document.addEventListener('DOMContentLoaded', function() {
+    const tracks = document.querySelectorAll('.testimonials-track');
+    
+    if (tracks.length >= 2) {
+        // Remove all animations first
+        tracks.forEach(track => {
+            track.style.animation = 'none';
+        });
+        
+        // Force a reflow
+        tracks[0].offsetHeight;
+        
+        // Restart animations with synchronized keyframes
+        setTimeout(() => {
+            tracks.forEach((track, index) => {
+                if (track.classList.contains('track-right')) {
+                    track.style.animation = 'scroll-right-sync 450s linear infinite';
+                } else {
+                    track.style.animation = 'scroll-left-sync 450s linear infinite';
+                }
+            });
+        }, 50);
+    }
+});
 const hero = document.querySelector('.hero');
 const shapes = document.querySelectorAll('.hero-shapes .shape');
 
@@ -326,13 +350,9 @@ window.addEventListener('scroll', () => {
     
     // Navbar background transition
     if (scrollY > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.backdropFilter = 'blur(25px)';
-        navbar.style.borderBottomColor = 'rgba(37, 99, 235, 0.2)';
+        navbar.classList.add('scrolled');
     } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.backdropFilter = 'blur(20px)';
-        navbar.style.borderBottomColor = 'rgba(37, 99, 235, 0.1)';
+        navbar.classList.remove('scrolled');
     }
     
     // Hero opacity based on view
