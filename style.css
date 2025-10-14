@@ -3169,12 +3169,71 @@ html {
         border-radius: 8px;
     }
     
-    /* Improve navigation touch targets */
+    /* Mobile Navigation Styles */
+    .navbar {
+        padding: 12px 0;
+    }
+    
+    .nav-container {
+        padding: 0 16px;
+        position: relative;
+    }
+    
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 16px;
+        margin: 8px 16px 0;
+        padding: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        flex-direction: column;
+        gap: 8px;
+        z-index: 1000;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .nav-menu.active {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
     .nav-link {
         min-height: 48px;
         display: flex;
         align-items: center;
-        padding: 12px 16px;
+        justify-content: center;
+        padding: 12px 20px;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 500;
+        text-align: center;
+        transition: all 0.2s ease;
+        background: transparent;
+        color: var(--text-gray);
+    }
+    
+    .nav-link:hover {
+        background: rgba(37, 99, 235, 0.1);
+        color: var(--primary-blue);
+        transform: none;
+        box-shadow: none;
+    }
+    
+    .nav-link.active {
+        background: var(--secondary-blue);
+        color: white;
+        transform: none;
+        box-shadow: none;
     }
     
     .mobile-toggle {
@@ -3183,6 +3242,50 @@ html {
         display: flex;
         align-items: center;
         justify-content: center;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(37, 99, 235, 0.1);
+        border-radius: 12px;
+        font-size: 18px;
+        color: var(--text-gray);
+        transition: all 0.2s ease;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    
+    .mobile-toggle:hover {
+        background: rgba(255, 255, 255, 1);
+        color: var(--primary-blue);
+        transform: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Mobile Navigation Backdrop */
+    .nav-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-backdrop.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    /* Prevent body scroll when mobile menu is open */
+    body.mobile-menu-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
     }
     
     /* Responsive logo */
@@ -3291,6 +3394,41 @@ html {
         padding: 0 15px;
     }
     
+    /* Small Mobile Navigation Styles */
+    .navbar {
+        padding: 10px 0;
+    }
+    
+    .nav-menu {
+        margin: 6px 15px 0;
+        padding: 16px;
+        border-radius: 12px;
+        gap: 6px;
+    }
+    
+    .nav-link {
+        min-height: 44px;
+        padding: 10px 16px;
+        font-size: 15px;
+        border-radius: 10px;
+    }
+    
+    .mobile-toggle {
+        min-height: 44px;
+        min-width: 44px;
+        font-size: 16px;
+        border-radius: 10px;
+    }
+    
+    .logo {
+        height: 32px;
+    }
+    
+    .logo-img {
+        height: 32px;
+        max-width: 120px;
+    }
+    
     .hero {
         min-height: 100vh;
         padding: 100px 0 40px;
@@ -3320,13 +3458,193 @@ html {
         margin-left: 6px;
     }
     
+    .page-header {
+        padding: 100px 0 60px;
+    }
+    
     .page-title {
-        font-size: 1.8rem;
+        font-size: 2rem;
         line-height: 1.2;
+        margin-bottom: 16px;
     }
     
     .page-subtitle {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+    
+    .about-section {
+        padding: 60px 0;
+    }
+    
+    .about-title {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+    
+    .about-description {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 16px;
+    }
+    
+    .about-features-title {
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+    }
+    
+    .about-features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .about-feature-card {
+        padding: 25px 20px;
+    }
+    
+    .about-feature-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+    
+    .about-feature-title {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+    
+    .about-feature-description {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    .founder-section {
+        padding: 60px 0;
+        margin-bottom: 60px;
+    }
+    
+    .founder-heading {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    
+    .founder-details {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .founder-avatar {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto;
+    }
+    
+    .founder-photo {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .founder-name {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+    }
+    
+    .founder-title {
         font-size: 0.9rem;
+        margin-bottom: 16px;
+    }
+    
+    .founder-bio,
+    .founder-mission {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 12px;
+    }
+    
+    .founder-credentials {
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+    
+    .credential {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+    
+    .timeline-section {
+        padding: 60px 0;
+        margin-bottom: 60px;
+    }
+    
+    .timeline-heading {
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    
+    .timeline {
+        padding-left: 20px;
+    }
+    
+    .timeline-item {
+        margin-bottom: 30px;
+    }
+    
+    .timeline-year {
+        font-size: 1rem;
+        padding: 8px 16px;
+        margin-bottom: 12px;
+    }
+    
+    .timeline-content h4 {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+    }
+    
+    .timeline-content p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    .values-section {
+        padding: 60px 0;
+        margin-bottom: 60px;
+    }
+    
+    .values-heading {
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .value-card {
+        padding: 25px 20px;
+        text-align: center;
+    }
+    
+    .value-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        margin: 0 auto 16px;
+    }
+    
+    .value-card h4 {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+    
+    .value-card p {
+        font-size: 14px;
+        line-height: 1.5;
     }
     
     .section-title {
@@ -3850,6 +4168,45 @@ html {
         padding: 0 20px;
     }
     
+    /* Medium Mobile Navigation Styles */
+    .navbar {
+        padding: 14px 0;
+    }
+    
+    .nav-container {
+        padding: 0 20px;
+    }
+    
+    .nav-menu {
+        margin: 8px 20px 0;
+        padding: 24px;
+        border-radius: 16px;
+        gap: 10px;
+    }
+    
+    .nav-link {
+        min-height: 50px;
+        padding: 14px 24px;
+        font-size: 16px;
+        border-radius: 14px;
+    }
+    
+    .mobile-toggle {
+        min-height: 50px;
+        min-width: 50px;
+        font-size: 20px;
+        border-radius: 14px;
+    }
+    
+    .logo {
+        height: 40px;
+    }
+    
+    .logo-img {
+        height: 40px;
+        max-width: 160px;
+    }
+    
     .hero-title {
         font-size: 36px;
     }
@@ -3858,12 +4215,194 @@ html {
         font-size: 16px;
     }
     
+    .page-header {
+        padding: 120px 0 80px;
+    }
+    
     .page-title {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
+        line-height: 1.2;
+        margin-bottom: 20px;
     }
     
     .page-subtitle {
+        font-size: 1.1rem;
+        line-height: 1.4;
+    }
+    
+    .about-section {
+        padding: 80px 0;
+    }
+    
+    .about-title {
+        font-size: 2.2rem;
+        margin-bottom: 25px;
+    }
+    
+    .about-description {
+        font-size: 17px;
+        line-height: 1.6;
+        margin-bottom: 18px;
+    }
+    
+    .about-features-title {
+        font-size: 2.2rem;
+        margin-bottom: 50px;
+    }
+    
+    .about-features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .about-feature-card {
+        padding: 35px 25px;
+    }
+    
+    .about-feature-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+    
+    .about-feature-title {
+        font-size: 18px;
+        margin-bottom: 14px;
+    }
+    
+    .about-feature-description {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+    
+    .founder-section {
+        padding: 80px 0;
+        margin-bottom: 80px;
+    }
+    
+    .founder-heading {
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    
+    .founder-details {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .founder-avatar {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+    }
+    
+    .founder-photo {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .founder-name {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+    
+    .founder-title {
         font-size: 1rem;
+        margin-bottom: 18px;
+    }
+    
+    .founder-bio,
+    .founder-mission {
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 14px;
+    }
+    
+    .founder-credentials {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 25px;
+    }
+    
+    .credential {
+        font-size: 13px;
+        padding: 8px 14px;
+    }
+    
+    .timeline-section {
+        padding: 80px 0;
+        margin-bottom: 80px;
+    }
+    
+    .timeline-heading {
+        font-size: 2.2rem;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+    
+    .timeline {
+        padding-left: 30px;
+    }
+    
+    .timeline-item {
+        margin-bottom: 40px;
+    }
+    
+    .timeline-year {
+        font-size: 1.1rem;
+        padding: 10px 18px;
+        margin-bottom: 15px;
+    }
+    
+    .timeline-content h4 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+    
+    .timeline-content p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+    
+    .values-section {
+        padding: 80px 0;
+        margin-bottom: 80px;
+    }
+    
+    .values-heading {
+        font-size: 2.2rem;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+    
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .value-card {
+        padding: 35px 25px;
+        text-align: center;
+    }
+    
+    .value-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 26px;
+        margin: 0 auto 20px;
+    }
+    
+    .value-card h4 {
+        font-size: 1.2rem;
+        margin-bottom: 14px;
+    }
+    
+    .value-card p {
+        font-size: 15px;
+        line-height: 1.5;
     }
     
     .section-title {

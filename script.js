@@ -1,11 +1,60 @@
-// Mobile Navigation Toggle
+// Enhanced Mobile Navigation Toggle
 const mobileToggle = document.getElementById('mobileToggle');
 const navMenu = document.getElementById('navMenu');
 
 if (mobileToggle && navMenu) {
+    // Create backdrop element
+    const backdrop = document.createElement('div');
+    backdrop.className = 'nav-backdrop';
+    document.body.appendChild(backdrop);
+    
     mobileToggle.addEventListener('click', () => {
         const isActive = navMenu.classList.toggle('active');
         mobileToggle.setAttribute('aria-expanded', isActive);
+        
+        // Toggle backdrop
+        backdrop.classList.toggle('active');
+        
+        // Prevent body scroll
+        if (isActive) {
+            document.body.classList.add('mobile-menu-open');
+        } else {
+            document.body.classList.remove('mobile-menu-open');
+        }
+        
+        // Add haptic feedback for mobile devices
+        if ('vibrate' in navigator) {
+            navigator.vibrate(50);
+        }
+    });
+    
+    // Close menu when clicking backdrop
+    backdrop.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        backdrop.classList.remove('active');
+        document.body.classList.remove('mobile-menu-open');
+    });
+    
+    // Close menu when clicking on a link
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            mobileToggle.setAttribute('aria-expanded', 'false');
+            backdrop.classList.remove('active');
+            document.body.classList.remove('mobile-menu-open');
+        });
+    });
+    
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            mobileToggle.setAttribute('aria-expanded', 'false');
+            backdrop.classList.remove('active');
+            document.body.classList.remove('mobile-menu-open');
+            mobileToggle.focus();
+        }
     });
 }
 
@@ -24,14 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        if (navMenu) {
-            navMenu.classList.remove('active');
-        }
-    });
-});
 
 // Testimonials Carousel
 document.addEventListener('DOMContentLoaded', () => {
@@ -400,21 +441,6 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
-        navMenu.classList.remove('active');
-    }
-});
-
-// Prevent body scroll when mobile menu is open
-navMenu.addEventListener('transitionend', () => {
-    if (navMenu.classList.contains('active')) {
-        document.body.style.overflow = 'hidden';
-    } else {
-        document.body.style.overflow = '';
-    }
-});
 
 // Manual trigger function for testing stats animation
 window.triggerStatsAnimation = () => {
@@ -728,42 +754,6 @@ function addMobileEventListeners() {
     });
 }
 
-// Enhanced mobile navigation
-function enhanceMobileNavigation() {
-    const mobileToggle = document.getElementById('mobileToggle');
-    const navMenu = document.getElementById('navMenu');
-    
-    if (mobileToggle && navMenu) {
-        // Add haptic feedback for mobile devices
-        mobileToggle.addEventListener('click', () => {
-            if ('vibrate' in navigator) {
-                navigator.vibrate(50);
-            }
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
-                navMenu.classList.remove('active');
-                mobileToggle.setAttribute('aria-expanded', 'false');
-            }
-        });
-        
-        // Close menu on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-                mobileToggle.setAttribute('aria-expanded', 'false');
-                mobileToggle.focus();
-            }
-        });
-    }
-}
-
-// Initialize mobile enhancements
-document.addEventListener('DOMContentLoaded', () => {
-    enhanceMobileNavigation();
-});
 
 // Add CSS for touch devices
 const touchStyles = document.createElement('style');
