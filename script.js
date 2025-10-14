@@ -1,4 +1,4 @@
-// Enhanced Mobile Navigation Toggle
+// Enhanced Mobile Navigation Toggleremove
 const mobileToggle = document.getElementById('mobileToggle');
 const navMenu = document.getElementById('navMenu');
 
@@ -801,6 +801,312 @@ touchStyles.textContent = `
 `;
 document.head.appendChild(touchStyles);
 
-console.log('Nivedasoft Website Loaded Successfully ✨');
-console.log('Mobile optimizations applied');
-console.log('To manually trigger stats animation, run: triggerStatsAnimation()');
+// Heading Animation System
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize heading animations
+    initializeHeadingAnimations();
+});
+
+function initializeHeadingAnimations() {
+    // Get only main headings at the top of pages (hero titles, page titles, main section titles)
+    const mainHeadings = document.querySelectorAll('.hero-title, .page-title, .section-title:first-of-type');
+    
+    // Add animation classes to main headings only
+    mainHeadings.forEach((heading, index) => {
+        // Add base animation class
+        heading.classList.add('animated-heading');
+        
+        // Add specific animation types based on heading type
+        if (heading.classList.contains('hero-title')) {
+            heading.classList.add('scale-in', 'gradient-text');
+        } else if (heading.classList.contains('page-title')) {
+            heading.classList.add('scale-in', 'gradient-text');
+        } else if (heading.classList.contains('section-title')) {
+            heading.classList.add('slide-left', 'gradient-text');
+        }
+        
+        // Add staggered delay based on index
+        heading.style.animationDelay = `${index * 0.2}s`;
+    });
+    
+    // Create intersection observer for main heading animations
+    const headingObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                
+                // Add special effects for main headings
+                if (entry.target.classList.contains('hero-title') || entry.target.classList.contains('page-title')) {
+                    setTimeout(() => {
+                        entry.target.classList.add('letter-spacing-anim');
+                    }, 300);
+                }
+            }
+        });
+    }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    // Observe only main headings
+    mainHeadings.forEach(heading => {
+        headingObserver.observe(heading);
+    });
+    
+    console.log(`Initialized animations for ${mainHeadings.length} main headings only`);
+}
+
+// Add hover effects for main headings only
+document.addEventListener('DOMContentLoaded', () => {
+    const mainHeadings = document.querySelectorAll('.hero-title, .page-title, .section-title:first-of-type');
+    
+    mainHeadings.forEach(heading => {
+        heading.addEventListener('mouseenter', () => {
+            heading.style.transform = 'translateY(-3px) scale(1.02)';
+            heading.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+        });
+        
+        heading.addEventListener('mouseleave', () => {
+            heading.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+});
+
+// Add typing animation for specific headings
+function addTypingAnimation(element, text, speed = 100) {
+    element.textContent = '';
+    let i = 0;
+    
+    const typeWriter = () => {
+        if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        }
+    };
+    
+    typeWriter();
+}
+
+// Add special effects for hero headings
+document.addEventListener('DOMContentLoaded', () => {
+    const heroTitle = document.querySelector('.hero-title');
+    const pageTitle = document.querySelector('.page-title');
+    
+    if (heroTitle) {
+        // Add special animation to hero title
+        setTimeout(() => {
+            // Hero title effects can be added here if needed
+        }, 1000);
+    }
+    
+    if (pageTitle) {
+        // Add special animation to page title
+        setTimeout(() => {
+            // Page title effects can be added here if needed
+        }, 800);
+    }
+});
+
+// SAP Training Page Enhancements
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize course filtering and search
+    initializeCourseFiltering();
+    
+    // Initialize course card animations
+    initializeCourseAnimations();
+});
+
+function initializeCourseFiltering() {
+    const searchInput = document.getElementById('courseSearch');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const courseCards = document.querySelectorAll('.course-card');
+    
+    if (!searchInput || !filterButtons.length || !courseCards.length) return;
+    
+    // Search functionality
+    searchInput.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        filterCourses(searchTerm, getActiveFilter());
+    });
+    
+    // Filter button functionality
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Filter courses
+            const searchTerm = searchInput.value.toLowerCase();
+            const filter = button.getAttribute('data-filter');
+            filterCourses(searchTerm, filter);
+        });
+    });
+    
+    function getActiveFilter() {
+        const activeButton = document.querySelector('.filter-btn.active');
+        return activeButton ? activeButton.getAttribute('data-filter') : 'all';
+    }
+    
+    function filterCourses(searchTerm, filter) {
+        courseCards.forEach(card => {
+            const title = card.querySelector('h3').textContent.toLowerCase();
+            const description = card.querySelector('.course-description').textContent.toLowerCase();
+            const level = card.getAttribute('data-level');
+            const certification = card.getAttribute('data-certification');
+            
+            const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
+            const matchesFilter = filter === 'all' || 
+                                (filter === 'certification' && certification === 'true') ||
+                                (filter !== 'certification' && level === filter);
+            
+            if (matchesSearch && matchesFilter) {
+                card.style.display = 'block';
+                card.style.animation = 'fadeInUp 0.5s ease forwards';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        
+        // Update course count
+        updateCourseCount();
+    }
+    
+    function updateCourseCount() {
+        const visibleCards = document.querySelectorAll('.course-card[style*="block"], .course-card:not([style*="none"])');
+        const countElement = document.querySelector('.course-count');
+        
+        if (countElement) {
+            countElement.textContent = `${visibleCards.length} courses found`;
+        }
+    }
+}
+
+function initializeCourseAnimations() {
+    // Intersection Observer for course cards
+    const courseObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    // Observe all course cards
+    document.querySelectorAll('.course-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'all 0.6s ease';
+        courseObserver.observe(card);
+    });
+}
+
+// Add course card hover effects
+document.addEventListener('DOMContentLoaded', () => {
+    const courseCards = document.querySelectorAll('.course-card');
+    
+    courseCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-8px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+});
+
+// Add instructor card animations
+document.addEventListener('DOMContentLoaded', () => {
+    const instructorCards = document.querySelectorAll('.instructor-card');
+    
+    instructorCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        observer.observe(card);
+    });
+});
+
+// Add success story animations
+document.addEventListener('DOMContentLoaded', () => {
+    const storyCards = document.querySelectorAll('.story-card');
+    
+    storyCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateX(-30px)';
+        card.style.transition = `all 0.6s ease ${index * 0.2}s`;
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateX(0)';
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        observer.observe(card);
+    });
+});
+
+// Add methodology card animations
+document.addEventListener('DOMContentLoaded', () => {
+    const methodologyCards = document.querySelectorAll('.methodology-card');
+    
+    methodologyCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = `all 0.6s ease ${index * 0.15}s`;
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        observer.observe(card);
+    });
+});
+
+// Add learning path animations
+document.addEventListener('DOMContentLoaded', () => {
+    const learningPaths = document.querySelectorAll('.learning-path');
+    
+    learningPaths.forEach((path, index) => {
+        path.style.opacity = '0';
+        path.style.transform = 'translateX(30px)';
+        path.style.transition = `all 0.6s ease ${index * 0.2}s`;
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateX(0)';
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        observer.observe(path);
+    });
+});
+
+console.log('SAP Training page enhancements loaded successfully');

@@ -78,112 +78,402 @@
                 </div>
             </div>
 
-            <!-- Popular Courses Preview -->
-            <div class="courses-preview">
-                <h2 class="section-title">Popular SAP Courses</h2>
+            <!-- Course Filter and Search -->
+            <div class="course-filter-section">
+                <h2 class="section-title">Comprehensive SAP Course Catalog</h2>
+                <div class="filter-controls">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="courseSearch" placeholder="Search courses...">
+                    </div>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">All Courses</button>
+                        <button class="filter-btn" data-filter="beginner">Beginner</button>
+                        <button class="filter-btn" data-filter="intermediate">Intermediate</button>
+                        <button class="filter-btn" data-filter="advanced">Advanced</button>
+                        <button class="filter-btn" data-filter="certification">Certification</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced Course Catalog -->
+            <div class="courses-catalog">
                 <div class="courses-grid">
-                    <div class="course-card">
+                    <!-- Core SAP Modules -->
+                    <div class="course-card" data-level="beginner" data-certification="true">
+                        <div class="course-badge">Most Popular</div>
                         <div class="course-icon">
                             <i class="fas fa-database"></i>
                         </div>
-                        <h3>SAP S/4HANA</h3>
-                        <p>Next-generation ERP suite with intelligent automation and real-time analytics.</p>
-                        <div class="course-duration">Duration: 40 hours</div>
+                        <h3>SAP S/4HANA Fundamentals</h3>
+                        <p class="course-description">Master the next-generation ERP suite with intelligent automation, real-time analytics, and modern user experience.</p>
+                        <div class="course-meta">
+                            <div class="course-duration"><i class="fas fa-clock"></i> 40 hours</div>
+                            <div class="course-level"><i class="fas fa-signal"></i> Beginner</div>
+                            <div class="course-certification"><i class="fas fa-certificate"></i> SAP Certified</div>
+                        </div>
+                        <div class="course-features">
+                            <span class="feature-tag">Live Training</span>
+                            <span class="feature-tag">Hands-on Labs</span>
+                            <span class="feature-tag">Certification</span>
+                        </div>
                         <a href="contact.html" class="course-btn">Enroll Now</a>
                     </div>
-                    <div class="course-card">
+
+                    <div class="course-card" data-level="intermediate" data-certification="true">
                         <div class="course-icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
                         <h3>SAP Analytics Cloud</h3>
-                        <p>Comprehensive analytics platform for planning, analysis, and predictive insights.</p>
-                        <div class="course-duration">Duration: 35 hours</div>
+                        <p class="course-description">Comprehensive analytics platform for planning, analysis, predictive insights, and business intelligence.</p>
+                        <div class="course-meta">
+                            <div class="course-duration"><i class="fas fa-clock"></i> 35 hours</div>
+                            <div class="course-level"><i class="fas fa-signal"></i> Intermediate</div>
+                            <div class="course-certification"><i class="fas fa-certificate"></i> SAP Certified</div>
+                        </div>
+                        <div class="course-features">
+                            <span class="feature-tag">Cloud Platform</span>
+                            <span class="feature-tag">Real-time Analytics</span>
+                            <span class="feature-tag">Certification</span>
+                        </div>
                         <a href="contact.html" class="course-btn">Enroll Now</a>
                     </div>
-                    <div class="course-card">
+
+                    <div class="course-card" data-level="intermediate">
                         <div class="course-icon">
                             <i class="fas fa-mobile-alt"></i>
                         </div>
-                        <h3>SAP Fiori</h3>
-                        <p>Modern user experience design and development for SAP applications.</p>
-                        <div class="course-duration">Duration: 30 hours</div>
+                        <h3>SAP Fiori Development</h3>
+                        <p class="course-description">Modern user experience design and development for SAP applications using Fiori principles.</p>
+                        <div class="course-meta">
+                            <div class="course-duration"><i class="fas fa-clock"></i> 30 hours</div>
+                            <div class="course-level"><i class="fas fa-signal"></i> Intermediate</div>
+                            <div class="course-certification"><i class="fas fa-certificate"></i> Industry Certified</div>
+                        </div>
+                        <div class="course-features">
+                            <span class="feature-tag">UI/UX Design</span>
+                            <span class="feature-tag">Mobile First</span>
+                            <span class="feature-tag">Responsive</span>
+                        </div>
                         <a href="contact.html" class="course-btn">Enroll Now</a>
                     </div>
-                    <div class="course-card">
+
+                    <div class="course-card" data-level="advanced" data-certification="true">
                         <div class="course-icon">
                             <i class="fas fa-cloud"></i>
                         </div>
-                        <h3>SAP HANA</h3>
-                        <p>In-memory database platform for real-time analytics and applications.</p>
-                        <div class="course-duration">Duration: 45 hours</div>
+                        <h3>SAP HANA Administration</h3>
+                        <p class="course-description">In-memory database platform administration, optimization, and real-time analytics implementation.</p>
+                        <div class="course-meta">
+                            <div class="course-duration"><i class="fas fa-clock"></i> 45 hours</div>
+                            <div class="course-level"><i class="fas fa-signal"></i> Advanced</div>
+                            <div class="course-certification"><i class="fas fa-certificate"></i> SAP Certified</div>
+                        </div>
+                        <div class="course-features">
+                            <span class="feature-tag">Database Admin</span>
+                            <span class="feature-tag">Performance Tuning</span>
+                            <span class="feature-tag">Certification</span>
+                        </div>
                         <a href="contact.html" class="course-btn">Enroll Now</a>
                     </div>
-                    <div class="course-card">
+
+                    <div class="course-card" data-level="intermediate" data-certification="true">
                         <div class="course-icon">
                             <i class="fas fa-users"></i>
                         </div>
                         <h3>SAP SuccessFactors</h3>
-                        <p>Cloud-based human capital management and talent management solutions.</p>
-                        <div class="course-duration">Duration: 38 hours</div>
+                        <p class="course-description">Cloud-based human capital management and comprehensive talent management solutions.</p>
+                        <div class="course-meta">
+                            <div class="course-duration"><i class="fas fa-clock"></i> 38 hours</div>
+                            <div class="course-level"><i class="fas fa-signal"></i> Intermediate</div>
+                            <div class="course-certification"><i class="fas fa-certificate"></i> SAP Certified</div>
+                        </div>
+                        <div class="course-features">
+                            <span class="feature-tag">HCM Solutions</span>
+                            <span class="feature-tag">Talent Management</span>
+                            <span class="feature-tag">Cloud Platform</span>
+                        </div>
                         <a href="contact.html" class="course-btn">Enroll Now</a>
                     </div>
-                    <div class="course-card">
+
+                    <div class="course-card" data-level="intermediate">
                         <div class="course-icon">
                             <i class="fas fa-shopping-cart"></i>
                         </div>
-                        <h3>SAP Ariba</h3>
-                        <p>Procurement and supply chain management solutions for digital transformation.</p>
-                        <div class="course-duration">Duration: 32 hours</div>
+                        <h3>SAP Ariba Procurement</h3>
+                        <p class="course-description">Procurement and supply chain management solutions for digital transformation and efficiency.</p>
+                        <div class="course-meta">
+                            <div class="course-duration"><i class="fas fa-clock"></i> 32 hours</div>
+                            <div class="course-level"><i class="fas fa-signal"></i> Intermediate</div>
+                            <div class="course-certification"><i class="fas fa-certificate"></i> Industry Certified</div>
+                        </div>
+                        <div class="course-features">
+                            <span class="feature-tag">Procurement</span>
+                            <span class="feature-tag">Supply Chain</span>
+                            <span class="feature-tag">Digital Transformation</span>
+                        </div>
+                        <a href="contact.html" class="course-btn">Enroll Now</a>
+                    </div>
+
+                    <!-- Additional Courses -->
+                    <div class="course-card" data-level="beginner" data-certification="true">
+                        <div class="course-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>SAP ABAP Programming</h3>
+                        <p class="course-description">Learn SAP's proprietary programming language for custom development and enhancement.</p>
+                        <div class="course-meta">
+                            <div class="course-duration"><i class="fas fa-clock"></i> 50 hours</div>
+                            <div class="course-level"><i class="fas fa-signal"></i> Beginner</div>
+                            <div class="course-certification"><i class="fas fa-certificate"></i> SAP Certified</div>
+                        </div>
+                        <div class="course-features">
+                            <span class="feature-tag">Programming</span>
+                            <span class="feature-tag">Custom Development</span>
+                            <span class="feature-tag">Certification</span>
+                        </div>
+                        <a href="contact.html" class="course-btn">Enroll Now</a>
+                    </div>
+
+                    <div class="course-card" data-level="advanced" data-certification="true">
+                        <div class="course-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>SAP Security & Authorization</h3>
+                        <p class="course-description">Comprehensive security implementation, user management, and authorization concepts in SAP.</p>
+                        <div class="course-meta">
+                            <div class="course-duration"><i class="fas fa-clock"></i> 42 hours</div>
+                            <div class="course-level"><i class="fas fa-signal"></i> Advanced</div>
+                            <div class="course-certification"><i class="fas fa-certificate"></i> SAP Certified</div>
+                        </div>
+                        <div class="course-features">
+                            <span class="feature-tag">Security</span>
+                            <span class="feature-tag">Authorization</span>
+                            <span class="feature-tag">Compliance</span>
+                        </div>
+                        <a href="contact.html" class="course-btn">Enroll Now</a>
+                    </div>
+
+                    <div class="course-card" data-level="intermediate">
+                        <div class="course-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>SAP BW/4HANA</h3>
+                        <p class="course-description">Data warehousing and business intelligence solutions for enterprise analytics and reporting.</p>
+                        <div class="course-meta">
+                            <div class="course-duration"><i class="fas fa-clock"></i> 48 hours</div>
+                            <div class="course-level"><i class="fas fa-signal"></i> Intermediate</div>
+                            <div class="course-certification"><i class="fas fa-certificate"></i> Industry Certified</div>
+                        </div>
+                        <div class="course-features">
+                            <span class="feature-tag">Data Warehousing</span>
+                            <span class="feature-tag">Business Intelligence</span>
+                            <span class="feature-tag">Reporting</span>
+                        </div>
                         <a href="contact.html" class="course-btn">Enroll Now</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Training Benefits -->
-            <div class="training-benefits">
-                <h2 class="section-title">Why Choose Our SAP Training?</h2>
-                <div class="benefits-grid">
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-certificate"></i>
+            <!-- Training Methodology -->
+            <div class="training-methodology">
+                <h2 class="section-title">Our Training Methodology</h2>
+                <div class="methodology-grid">
+                    <div class="methodology-card">
+                        <div class="methodology-icon">
+                            <i class="fas fa-play-circle"></i>
                         </div>
-                        <h3>Industry Certification</h3>
-                        <p>Get certified by industry experts with recognized credentials that boost your career prospects.</p>
+                        <h3>Interactive Learning</h3>
+                        <p>Engaging live sessions with real-time Q&A, hands-on exercises, and collaborative learning environment.</p>
                     </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-laptop"></i>
+                    <div class="methodology-card">
+                        <div class="methodology-icon">
+                            <i class="fas fa-laptop-code"></i>
                         </div>
-                        <h3>Hands-on Experience</h3>
-                        <p>Practical training with real-world scenarios and live SAP systems for comprehensive learning.</p>
+                        <h3>Hands-on Practice</h3>
+                        <p>Access to live SAP systems, sandbox environments, and practical scenarios for comprehensive skill development.</p>
                     </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
+                    <div class="methodology-card">
+                        <div class="methodology-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3>Project-Based Learning</h3>
+                        <p>Real-world projects and case studies that mirror actual industry challenges and solutions.</p>
+                    </div>
+                    <div class="methodology-card">
+                        <div class="methodology-icon">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <h3>Mentorship Program</h3>
+                        <p>One-on-one guidance from industry experts and ongoing support throughout your learning journey.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learning Paths -->
+            <div class="learning-paths">
+                <h2 class="section-title">SAP Learning Paths</h2>
+                <div class="paths-container">
+                    <div class="learning-path">
+                        <div class="path-header">
+                            <h3>Functional Consultant Path</h3>
+                            <span class="path-duration">6-8 months</span>
+                        </div>
+                        <div class="path-courses">
+                            <div class="path-course">SAP S/4HANA Fundamentals</div>
+                            <div class="path-course">SAP Fiori Development</div>
+                            <div class="path-course">SAP Analytics Cloud</div>
+                            <div class="path-course">SAP SuccessFactors</div>
+                        </div>
+                        <div class="path-outcome">
+                            <strong>Career Outcome:</strong> SAP Functional Consultant, Business Analyst, Process Consultant
+                        </div>
+                    </div>
+                    
+                    <div class="learning-path">
+                        <div class="path-header">
+                            <h3>Technical Consultant Path</h3>
+                            <span class="path-duration">8-10 months</span>
+                        </div>
+                        <div class="path-courses">
+                            <div class="path-course">SAP ABAP Programming</div>
+                            <div class="path-course">SAP HANA Administration</div>
+                            <div class="path-course">SAP Security & Authorization</div>
+                            <div class="path-course">SAP BW/4HANA</div>
+                        </div>
+                        <div class="path-outcome">
+                            <strong>Career Outcome:</strong> SAP Technical Consultant, SAP Developer, System Administrator
+                        </div>
+                    </div>
+                    
+                    <div class="learning-path">
+                        <div class="path-header">
+                            <h3>End-to-End SAP Path</h3>
+                            <span class="path-duration">12-15 months</span>
+                        </div>
+                        <div class="path-courses">
+                            <div class="path-course">All Core SAP Modules</div>
+                            <div class="path-course">Advanced Configuration</div>
+                            <div class="path-course">Integration & Migration</div>
+                            <div class="path-course">Project Management</div>
+                        </div>
+                        <div class="path-outcome">
+                            <strong>Career Outcome:</strong> SAP Solution Architect, Senior Consultant, Project Manager
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructor Profiles -->
+            <div class="instructors-section">
+                <h2 class="section-title">Meet Our Expert Instructors</h2>
+                <div class="instructors-grid">
+                    <div class="instructor-card">
+                        <div class="instructor-avatar">
                             <i class="fas fa-user-tie"></i>
                         </div>
-                        <h3>Expert Instructors</h3>
-                        <p>Learn from certified SAP professionals with years of industry experience and expertise.</p>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-clock"></i>
+                        <h3>Dr. Sarah Johnson</h3>
+                        <p class="instructor-title">Senior SAP Consultant</p>
+                        <div class="instructor-experience">
+                            <span class="experience-years">15+ Years</span>
+                            <span class="experience-field">SAP S/4HANA</span>
                         </div>
-                        <h3>Flexible Schedule</h3>
-                        <p>Choose from various training schedules including weekend, evening, and intensive programs.</p>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-headset"></i>
+                        <div class="instructor-certifications">
+                            <span class="cert-badge">SAP Certified</span>
+                            <span class="cert-badge">PMP Certified</span>
                         </div>
-                        <h3>24/7 Support</h3>
-                        <p>Get continuous support and guidance throughout your learning journey and beyond.</p>
+                        <p class="instructor-bio">Expert in SAP S/4HANA implementation with extensive experience in Fortune 500 companies.</p>
                     </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-briefcase"></i>
+                    
+                    <div class="instructor-card">
+                        <div class="instructor-avatar">
+                            <i class="fas fa-user-tie"></i>
                         </div>
-                        <h3>Career Assistance</h3>
-                        <p>Job placement assistance and career guidance to help you land your dream SAP role.</p>
+                        <h3>Michael Chen</h3>
+                        <p class="instructor-title">SAP Technical Lead</p>
+                        <div class="instructor-experience">
+                            <span class="experience-years">12+ Years</span>
+                            <span class="experience-field">SAP HANA & ABAP</span>
+                        </div>
+                        <div class="instructor-certifications">
+                            <span class="cert-badge">SAP Certified</span>
+                            <span class="cert-badge">AWS Certified</span>
+                        </div>
+                        <p class="instructor-bio">Specialized in SAP HANA administration and custom development with cloud expertise.</p>
+                    </div>
+                    
+                    <div class="instructor-card">
+                        <div class="instructor-avatar">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>Emily Rodriguez</h3>
+                        <p class="instructor-title">SAP Analytics Expert</p>
+                        <div class="instructor-experience">
+                            <span class="experience-years">10+ Years</span>
+                            <span class="experience-field">SAP Analytics Cloud</span>
+                        </div>
+                        <div class="instructor-certifications">
+                            <span class="cert-badge">SAP Certified</span>
+                            <span class="cert-badge">Data Science</span>
+                        </div>
+                        <p class="instructor-bio">Expert in SAP Analytics Cloud and business intelligence solutions for enterprise reporting.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student Success Stories -->
+            <div class="success-stories">
+                <h2 class="section-title">Student Success Stories</h2>
+                <div class="stories-grid">
+                    <div class="story-card">
+                        <div class="story-content">
+                            <div class="story-quote">"</div>
+                            <p>"NivedaSoft's SAP S/4HANA training transformed my career. Within 3 months of completing the course, I landed a senior consultant role at a leading IT company."</p>
+                            <div class="story-author">
+                                <h4>Rajesh Kumar</h4>
+                                <p>SAP S/4HANA Consultant at TechCorp</p>
+                            </div>
+                        </div>
+                        <div class="story-metrics">
+                            <div class="metric">
+                                <span class="metric-value">85%</span>
+                                <span class="metric-label">Salary Increase</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="story-card">
+                        <div class="story-content">
+                            <div class="story-quote">"</div>
+                            <p>"The hands-on approach and real-world projects at NivedaSoft gave me the confidence to implement SAP solutions independently. Highly recommended!"</p>
+                            <div class="story-author">
+                                <h4>Priya Sharma</h4>
+                                <p>SAP Functional Consultant at GlobalTech</p>
+                            </div>
+                        </div>
+                        <div class="story-metrics">
+                            <div class="metric">
+                                <span class="metric-value">100%</span>
+                                <span class="metric-label">Job Placement</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="story-card">
+                        <div class="story-content">
+                            <div class="story-quote">"</div>
+                            <p>"From a non-technical background to becoming a certified SAP HANA administrator - NivedaSoft made it possible with their structured learning approach."</p>
+                            <div class="story-author">
+                                <h4>Amit Patel</h4>
+                                <p>SAP HANA Administrator at DataFlow Inc.</p>
+                            </div>
+                        </div>
+                        <div class="story-metrics">
+                            <div class="metric">
+                                <span class="metric-value">6</span>
+                                <span class="metric-label">Months to Success</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
