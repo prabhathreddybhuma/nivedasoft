@@ -190,7 +190,7 @@ const statsObserver = new IntersectionObserver((entries) => {
             number.dataset.suffix = suffix;
             
             // stagger based on position in grid
-            const delay = (Array.from(document.querySelectorAll('.stat-card')).indexOf(entry.target) % 3) * 120;
+            const delay = (Array.from(document.querySelectorAll('.stat-item')).indexOf(entry.target) % 3) * 120;
             animateCounter(number, target, 1800, delay);
         }
     });
@@ -201,11 +201,11 @@ const statsObserver = new IntersectionObserver((entries) => {
 
 // Initialize stats observer when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-    const statCards = document.querySelectorAll('.stat-card');
+    const statItems = document.querySelectorAll('.stat-item');
     const statsSection = document.querySelector('.landing-stats');
     
-    // Only observe stats cards, don't trigger immediately
-    statCards.forEach((stat) => {
+    // Only observe stats items, don't trigger immediately
+    statItems.forEach((stat) => {
         statsObserver.observe(stat);
     });
     
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     console.log('Stats section is in view');
-                    // The individual stat cards will be handled by their own observer
+                    // The individual stat items will be handled by their own observer
                 }
             });
         }, { threshold: 0.1 });
@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sectionObserver.observe(statsSection);
     }
     
-    console.log(`Observing ${statCards.length} stat cards for animation`);
+    console.log(`Observing ${statItems.length} stat items for animation`);
 });
 
 // Parallax light effect on hover for stat cards
@@ -418,8 +418,8 @@ navMenu.addEventListener('transitionend', () => {
 
 // Manual trigger function for testing stats animation
 window.triggerStatsAnimation = () => {
-    const statCards = document.querySelectorAll('.stat-card');
-    statCards.forEach((stat) => {
+    const statItems = document.querySelectorAll('.stat-item');
+    statItems.forEach((stat) => {
         const number = stat.querySelector('.stat-number');
         const target = parseInt(number.getAttribute('data-target')) || 0;
         const suffix = number.textContent.replace(/[0-9,]/g, '');
