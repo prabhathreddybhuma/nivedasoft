@@ -1087,26 +1087,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Add learning path animations
-document.addEventListener('DOMContentLoaded', () => {
-    const learningPaths = document.querySelectorAll('.learning-path');
-    
-    learningPaths.forEach((path, index) => {
-        path.style.opacity = '0';
-        path.style.transform = 'translateX(30px)';
-        path.style.transition = `all 0.6s ease ${index * 0.2}s`;
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateX(0)';
-                }
-            });
-        }, { threshold: 0.2 });
-        
-        observer.observe(path);
-    });
-});
 
 console.log('SAP Training page enhancements loaded successfully');
