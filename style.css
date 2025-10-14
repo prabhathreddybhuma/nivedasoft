@@ -11,14 +11,14 @@
 }
 
 :root {
-    --primary-blue: #2563eb;
-    --secondary-blue: #1d4ed8;
-    --light-blue: #3b82f6;
-    --dark-blue: #1e40af;
-    --blue-50: #eff6ff;
-    --blue-100: #dbeafe;
-    --blue-200: #bfdbfe;
-    --text-dark: #1e293b;
+    --primary-blue: #1A233B;
+    --secondary-blue: #2A3441;
+    --light-blue: #3A4A5B;
+    --dark-blue: #0F1419;
+    --blue-50: #f8f9fb;
+    --blue-100: #e8ebf0;
+    --blue-200: #d1d6e1;
+    --text-dark: #1A233B;
     --text-gray: #64748b;
     --bg-light: #f8fafc;
     --white: #ffffff;
@@ -560,7 +560,7 @@ html {
 }
 
 .work-card {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, rgba(37, 99, 235, 0.9) 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
     color: var(--white);
     padding: 60px;
     border-radius: 24px;
@@ -585,7 +585,7 @@ html {
 
 .work-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 20px 40px rgba(26, 35, 59, 0.3);
 }
 
 .work-tag {
@@ -635,7 +635,7 @@ html {
     background: var(--white);
     padding: 40px;
     border-radius: 24px;
-    border: 1px solid rgba(37, 99, 235, 0.1);
+    border: 1px solid rgba(26, 35, 59, 0.1);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -649,13 +649,13 @@ html {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--primary-blue), rgba(37, 99, 235, 0.5));
+    background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
 }
 
 .stats-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-    border-color: rgba(37, 99, 235, 0.2);
+    border-color: rgba(26, 35, 59, 0.2);
 }
 
 .stats-title {
@@ -754,7 +754,7 @@ html {
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(90deg, var(--primary-blue), #3b82f6);
+    background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
@@ -766,13 +766,13 @@ html {
 .service-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-    border-color: rgba(37, 99, 235, 0.1);
+    border-color: rgba(26, 35, 59, 0.1);
 }
 
 .service-icon {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, var(--primary-blue) 0%, #3b82f6 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -780,7 +780,7 @@ html {
     margin-bottom: 24px;
     color: white;
     font-size: 32px;
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+    box-shadow: 0 8px 20px rgba(26, 35, 59, 0.2);
 }
 
 .service-title {
@@ -835,7 +835,7 @@ html {
 }
 
 .service-cta:hover {
-    background: #1d4ed8;
+    background: var(--secondary-blue);
     transform: translateY(-2px);
 }
 
@@ -869,7 +869,7 @@ html {
     background: rgba(255, 255, 255, 0.8);
     padding: 16px 24px;
     border-radius: 12px;
-    border: 1px solid rgba(37, 99, 235, 0.1);
+    border: 1px solid rgba(26, 35, 59, 0.1);
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
 }
@@ -877,8 +877,8 @@ html {
 .info-item:hover {
     background: rgba(255, 255, 255, 0.95);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.1);
-    border-color: rgba(37, 99, 235, 0.2);
+    box-shadow: 0 8px 25px rgba(26, 35, 59, 0.1);
+    border-color: rgba(26, 35, 59, 0.2);
 }
 
 .info-item i {
@@ -890,7 +890,7 @@ html {
 
 /* Footer */
 .footer {
-    background: linear-gradient(135deg, var(--text-dark) 0%, #1a1a2e 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
     color: var(--white);
     padding: 80px 0 40px;
     position: relative;
@@ -1002,7 +1002,7 @@ html {
     background: var(--primary-blue);
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 8px 25px rgba(26, 35, 59, 0.3);
 }
 
 
@@ -1108,22 +1108,22 @@ html {
 
 .landing-stats .stat-card:hover {
     transform: translateY(-12px);
-    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
-    border-color: rgba(37, 99, 235, 0.2);
+    box-shadow: 0 20px 40px rgba(26, 35, 59, 0.15);
+    border-color: rgba(26, 35, 59, 0.2);
 }
 
 .landing-stats .stat-icon {
     width: 80px;
     height: 80px;
     border-radius: 20px;
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue));
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 32px;
     margin: 0 auto 24px;
-    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 8px 25px rgba(26, 35, 59, 0.3);
     transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
@@ -1142,7 +1142,7 @@ html {
 
 .landing-stats .stat-card:hover .stat-icon {
     transform: scale(1.15) rotate(5deg);
-    box-shadow: 0 12px 35px rgba(37, 99, 235, 0.4);
+    box-shadow: 0 12px 35px rgba(26, 35, 59, 0.4);
 }
 
 .landing-stats .stat-card:hover .stat-icon::before {
@@ -1196,7 +1196,7 @@ html {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at center, rgba(37, 99, 235, 0.02), transparent 70%);
+    background: radial-gradient(circle at center, rgba(26, 35, 59, 0.02), transparent 70%);
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
@@ -1304,7 +1304,7 @@ html {
 
 .about-visual-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+    box-shadow: 0 20px 40px rgba(26, 35, 59, 0.15);
 }
 
 .about-visual-card i {
@@ -1364,14 +1364,14 @@ html {
 
 .about-stat-item:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
-    border-color: rgba(37, 99, 235, 0.2);
+    box-shadow: 0 20px 40px rgba(26, 35, 59, 0.15);
+    border-color: rgba(26, 35, 59, 0.2);
 }
 
 .about-stat-icon {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue));
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -1379,13 +1379,13 @@ html {
     margin: 0 auto 24px;
     color: white;
     font-size: 32px;
-    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 8px 25px rgba(26, 35, 59, 0.3);
     transition: all 0.3s ease;
 }
 
 .about-stat-item:hover .about-stat-icon {
     transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 12px 35px rgba(37, 99, 235, 0.4);
+    box-shadow: 0 12px 35px rgba(26, 35, 59, 0.4);
 }
 
 .about-stat-number {
@@ -1468,14 +1468,14 @@ html {
 
 .about-feature-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
-    border-color: rgba(37, 99, 235, 0.2);
+    box-shadow: 0 20px 40px rgba(26, 35, 59, 0.15);
+    border-color: rgba(26, 35, 59, 0.2);
 }
 
 .about-feature-icon {
     width: 70px;
     height: 70px;
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue));
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -1483,13 +1483,13 @@ html {
     margin: 0 auto 24px;
     color: white;
     font-size: 28px;
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 8px 20px rgba(26, 35, 59, 0.3);
     transition: all 0.3s ease;
 }
 
 .about-feature-card:hover .about-feature-icon {
     transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
+    box-shadow: 0 12px 30px rgba(26, 35, 59, 0.4);
 }
 
 .about-feature-title {
@@ -1610,7 +1610,7 @@ html {
     display: block;
     filter: grayscale(0.1) contrast(1.05) brightness(1.02);
     transition: all 0.4s ease;
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.02), rgba(37, 99, 235, 0.05));
+    background: linear-gradient(135deg, rgba(26, 35, 59, 0.02), rgba(26, 35, 59, 0.05));
 }
 
 .founder-photo:hover {
@@ -1624,10 +1624,10 @@ html {
     position: absolute;
     inset: 0;
     background: linear-gradient(135deg, 
-        rgba(37, 99, 235, 0.03) 0%, 
+        rgba(26, 35, 59, 0.03) 0%, 
         transparent 30%, 
         transparent 70%, 
-        rgba(37, 99, 235, 0.02) 100%);
+        rgba(26, 35, 59, 0.02) 100%);
     pointer-events: none;
     z-index: 1;
 }
@@ -1639,7 +1639,7 @@ html {
     left: 0;
     right: 0;
     height: 60px;
-    background: linear-gradient(transparent, rgba(37, 99, 235, 0.05));
+    background: linear-gradient(transparent, rgba(26, 35, 59, 0.05));
     pointer-events: none;
     z-index: 1;
 }
@@ -1647,7 +1647,7 @@ html {
 .founder-photo-placeholder {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, var(--primary-blue), rgba(37, 99, 235, 0.8));
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1749,7 +1749,7 @@ html {
 }
 
 .credential:hover {
-    background: rgba(37, 99, 235, 0.9);
+    background: var(--secondary-blue);
     transform: translateY(-1px);
 }
 
@@ -1772,13 +1772,13 @@ html {
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 4px 15px rgba(26, 35, 59, 0.3);
 }
 
 .cta-button:hover {
-    background: rgba(37, 99, 235, 0.9);
+    background: var(--secondary-blue);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+    box-shadow: 0 8px 25px rgba(26, 35, 59, 0.4);
 }
 
 .cta-button i {
@@ -1863,7 +1863,7 @@ html {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(180deg, var(--primary-blue), rgba(37, 99, 235, 0.3));
+    background: linear-gradient(180deg, var(--primary-blue), var(--secondary-blue));
     transform: translateX(-50%);
 }
 
@@ -1894,7 +1894,7 @@ html {
     justify-content: center;
     font-weight: 700;
     font-size: 14px;
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 4px 15px rgba(26, 35, 59, 0.3);
     position: relative;
     z-index: 2;
 }
