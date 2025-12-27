@@ -54,13 +54,18 @@
 
     <main id="main-content">
         <!-- New Hero Section -->
+        <!-- New Hero Section -->
         <section class="about-hero-grid">
-            <h1 class="massive-title">ABOUT<br>US</h1>
-            <div class="about-hero-intro">
-                <p>Luxurious Interior and Industrial Design</p>
-                <br>
-                <p>NivedaSoft pioneers SAP solutions and enterprise training. We blend modern elegance with robust
-                    infrastructure to create pathways for professional excellence.</p>
+            <!-- Left Column: Title + Intro -->
+            <div>
+                <h1 class="massive-title">ABOUT<br>US</h1>
+                <div class="about-hero-intro">
+                    <p>Pioneering SAP solutions and enterprise training since 2015</p>
+                    <br>
+                    <p>Founded in 2015 by a group of passionate technology professionals, our training institute has
+                        proudly
+                        evolved into a leading provider of SAP ERP training.</p>
+                </div>
             </div>
             <div class="about-hero-image-container">
                 <!-- Using a placeholder or existing image representing modern tech/office -->
@@ -70,6 +75,7 @@
         </section>
 
         <!-- Philosophy Section -->
+        <!-- Philosophy Section -->
         <section class="philosophy-section">
             <div class="philosophy-grid">
                 <div class="philosophy-image-container">
@@ -77,46 +83,186 @@
                         alt="Team Collaboration" class="about-hero-image">
                 </div>
                 <div>
-                    <h2 class="philosophy-title">Our Philosophy</h2>
+                    <h2 class="philosophy-title">Our Mission</h2>
                     <p class="philosophy-text">
-                        At NivedaSoft, we believe in creating transformative educational environments that reflect our
-                        clients' ambitions. We bridge the gap between theory and industry practice through immersive,
-                        hands-on learning experiences.
+                        Our mission is to help learners and professionals bridge the gap between theory and industry
+                        practice. At our core, we believe that quality training is the foundation for successful
+                        careers.
                     </p>
                     <p class="philosophy-text">
-                        Our designs—whether in curriculum or infrastructure—are curated to foster innovation, vitalize
-                        careers, and build the future of enterprise technology.
+                        Our trainers provide personal guidance and support throughout the training journey, combining
+                        hands-on learning, industry-aligned modules, and personalized mentoring to ensure every
+                        participant gains confidence during the training.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- Meet The Principals/Leadership Section -->
-        <section class="principals-section">
-            <div class="principals-container">
-                <!-- Left Profile: Founder -->
-                <div class="principal-profile">
-                    <img src="founder-headshot.png" alt="Venkata Srinivasa Reddy Thiguru" class="principal-image"
-                        onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=500'">
-                    <h4 class="principal-name">Venkata Reddy</h4>
-                    <span class="principal-role">Founder & CEO</span>
+        <!-- Core Services Section (Bento Grid + Left Sidebar) -->
+        <section class="about-features-section" style="padding: 4rem 5%; max-width: 1600px; margin: 0 auto;">
+
+            <div class="sidebar-layout">
+                <!-- Sidebar Left -->
+                <div class="sidebar-column">
+                    <h2 class="vertical-text">CORE SERVICES</h2>
                 </div>
 
-                <!-- Center Text -->
-                <div class="principal-title-block">
-                    <h2 class="principal-heading">MEET THE<br>LEADERSHIP</h2>
-                    <p class="principal-bio-text">
-                        "We started with a dream to provide professionals with better opportunities through world-class
-                        SAP training. This has now become our life's commitment."
-                    </p>
+                <!-- Content Right -->
+                <div class="content-column">
+                    <div class="bento-grid" style="border-left: none; border-top: none; border: none; margin-top: 0;">
+                        <!-- Row 1: 4 + 2 -->
+                        <!-- Service 1: Data Center (Big Impact) -->
+                        <div class="span-4">
+                            <div class="bento-card card-blue" style="border-left: none; border-top: none;">
+                                <div class="bento-card-icon"><i class="fas fa-server"></i></div>
+                                <div>
+                                    <h4 class="bento-card-title">State of Art Data Center</h4>
+                                    <p class="bento-card-desc">A state of art data center delivering cutting edge
+                                        performance, security and scalability with advance infrastructure, automation
+                                        and energy efficacy technologies. We ensure uninterrupted operations and optimal
+                                        data management.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 2: PaaS (Techy Glass) -->
+                        <div class="span-2">
+                            <div class="bento-card card-glass" style="border-top: none;">
+                                <div class="bento-card-icon"><i class="fas fa-cloud"></i></div>
+                                <div>
+                                    <h4 class="bento-card-title">SAP PaaS Services</h4>
+                                    <p class="bento-card-desc">Accelerate innovation by developing, deploying and
+                                        managing applications seamlessly in a secure scalable cloud environment.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Row 2: 3 + 3 -->
+                        <!-- Service 3: Training (Solid) -->
+                        <div class="span-3">
+                            <div class="bento-card card-dark" style="border-left: none;">
+                                <div class="bento-card-icon"><i class="fas fa-graduation-cap"></i></div>
+                                <div>
+                                    <h4 class="bento-card-title">Quality Training</h4>
+                                    <p class="bento-card-desc">Enhance your skills with our tailored training programs,
+                                        designed to equip you with knowledge and confidence. Tailored solutions for
+                                        corporate teams.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 4: Comprehensive (Solid) -->
+                        <div class="span-3">
+                            <div class="bento-card card-dark">
+                                <div class="bento-card-icon"><i class="fas fa-book-reader"></i></div>
+                                <div>
+                                    <h4 class="bento-card-title">Comprehensive SAP Training</h4>
+                                    <p class="bento-card-desc">Empowering professionals with in-depth knowledge across
+                                        all SAP modules. Our holistic training approach ensures hands-on experience and
+                                        industry-ready expertise.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Row 3: 2 + 4 -->
+                        <!-- Service 5: Support (Glass) -->
+                        <div class="span-2">
+                            <div class="bento-card card-glass" style="border-left: none;">
+                                <div class="bento-card-icon"><i class="fas fa-headset"></i></div>
+                                <div>
+                                    <h4 class="bento-card-title">Support Services</h4>
+                                    <p class="bento-card-desc">Unparalleled support and direct access to your team. We
+                                        guarantee minimal downtime and maximum security for your critical data.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 6: Playground (Big Blue) -->
+                        <div class="span-4">
+                            <div class="bento-card card-blue">
+                                <div class="bento-card-icon"><i class="fas fa-laptop-code"></i></div>
+                                <div>
+                                    <h4 class="bento-card-title">Live Playground</h4>
+                                    <p class="bento-card-desc">Environment designed to explore, experiment and learn SAP
+                                        solutions. Hands-on experience without complex setup. Dedicated or shared
+                                        servers managed from our data center.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meet The Principals/Leadership Section (Bento Style + Right Sidebar) -->
+        <section class="principals-section" style="padding: 4rem 5%; max-width: 1600px; margin: 0 auto;">
+
+            <div class="sidebar-layout">
+                <!-- Content Left -->
+                <div class="content-column">
+                    <div class="bento-grid" style="grid-template-columns: repeat(6, 1fr); margin-top: 0; border: none;">
+
+                        <!-- Card 1: Profile (Span 2) - Vertical Dark Card -->
+                        <div class="span-2">
+                            <div class="bento-card card-dark"
+                                style="padding: 0; overflow: hidden; position: relative; height: 100%; min-height: 500px; border-top: none; border-bottom: none; border-left: none;">
+                                <img src="founder-headshot.png" alt="Venkata Srinivasa Reddy Thiguru"
+                                    style="width: 100%; height: 100%; object-fit: cover; object-position: top center;"
+                                    onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600'">
+
+                                <div
+                                    style="position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(15, 23, 42, 1), transparent); padding: 2rem; padding-top: 6rem;">
+                                    <h4
+                                        style="font-family: 'Outfit', sans-serif; font-size: 1.8rem; font-weight: 700; color: white; margin-bottom: 0.5rem;">
+                                        Venkata Reddy</h4>
+                                    <span style="font-size: 1.1rem; color: #94A3B8; display: block;">Founder &
+                                        CEO</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Vision/Bio (Span 4) - Glass Tech Card -->
+                        <div class="span-4">
+                            <div class="bento-card card-glass"
+                                style="display: flex; flex-direction: column; justify-content: center; position: relative; border-top: none; border-bottom: none; border-right: none;">
+                                <!-- Quotation Mark Decoration -->
+                                <div
+                                    style="position: absolute; top: 1rem; right: 2rem; font-family: serif; font-size: 8rem; opacity: 0.1; line-height: 1;">
+                                    "</div>
+
+                                <h3
+                                    style="font-family: 'Outfit', sans-serif; font-size: 2rem; margin-bottom: 2rem; color: white;">
+                                    The Vision</h3>
+
+                                <p
+                                    style="font-size: 1.25rem; line-height: 1.8; color: #E2E8F0; margin-bottom: 2rem; max-width: 90%;">
+                                    "Detailed with decades of collective experience working with global enterprises, we
+                                    allow companies to accelerate innovation."
+                                </p>
+
+                                <p style="font-size: 1.15rem; line-height: 1.6; color: #94A3B8;">
+                                    We started with a dream to provide professionals with better opportunities through
+                                    world-class SAP training. This has now become our life's commitment. Our mission is
+                                    to bridge the gap between theoretical knowledge and practical industry application.
+                                </p>
+
+                                <div style="margin-top: 3rem; display: flex; gap: 1rem;">
+                                    <a href="https://linkedin.com" target="_blank"
+                                        style="color: white; font-size: 1.5rem; opacity: 0.8; transition: opacity 0.3s;"><i
+                                            class="fab fa-linkedin"></i></a>
+                                    <a href="mailto:info@nivedasoft.com"
+                                        style="color: white; font-size: 1.5rem; opacity: 0.8; transition: opacity 0.3s;"><i
+                                            class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
 
-                <!-- Right Profile: Placeholder Key Figure or Visual -->
-                <div class="principal-profile">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=500"
-                        alt="Lead Instructor" class="principal-image">
-                    <h4 class="principal-name">Sarah Johnson</h4>
-                    <span class="principal-role">Head of Training</span>
+                <!-- Sidebar Right -->
+                <div class="sidebar-column right">
+                    <h2 class="vertical-text">LEADERSHIP</h2>
                 </div>
             </div>
         </section>
@@ -126,32 +272,66 @@
              I'll add the timeline back in a subtle way or omit if it clashes. 
              Let's keep the Timeline but style it cleaner to fit underneath. 
         -->
-        <section class="timeline-section" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 4rem;">
-            <div class="container">
-                <h3 class="timeline-heading animated-heading"
-                    style="text-align:center; font-size: 2.5rem; margin-bottom: 3rem;">Our History</h3>
-                <div class="timeline">
-                    <!-- Reduced timeline items for cleaner look -->
-                    <div class="timeline-item">
-                        <div class="timeline-year">2015</div>
-                        <div class="timeline-content">
-                            <h4>Founded</h4>
-                            <p>Established to provide world-class SAP training.</p>
+        <!-- Our History Section (Sidebar Left + Bento Grid) -->
+        <section class="history-section" style="padding: 4rem 5%; max-width: 1600px; margin: 0 auto;">
+
+            <div class="sidebar-layout">
+                <!-- Sidebar Left -->
+                <div class="sidebar-column">
+                    <h2 class="vertical-text">JOURNEY</h2>
+                </div>
+
+                <!-- Content Right -->
+                <div class="content-column">
+                    <div class="bento-grid" style="border-left: none; border-top: none; border: none; margin-top: 0;">
+                        <!-- Row 1: 3 uniform cards (Span 2 each) -->
+
+                        <!-- 2015: Founded (Blue) -->
+                        <div class="span-2">
+                            <div class="bento-card card-blue"
+                                style="border-left: none; border-top: none; height: 100%;">
+                                <h3
+                                    style="font-family: 'Outfit', sans-serif; font-size: 3rem; font-weight: 800; opacity: 0.3; position: absolute; top: 1rem; right: 1.5rem;">
+                                    '15</h3>
+                                <div class="bento-card-icon"><i class="fas fa-flag"></i></div>
+                                <div>
+                                    <h4 class="bento-card-title">Founded</h4>
+                                    <p class="bento-card-desc">Established to provide world-class SAP training, driven
+                                        by a vision to bridge the skills gap in the enterprise technology sector.</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2019</div>
-                        <div class="timeline-content">
-                            <h4>Global Expansion</h4>
-                            <p>Serving clients across NA, Europe, and APAC.</p>
+
+                        <!-- 2019: Global (Dark) -->
+                        <div class="span-2">
+                            <div class="bento-card card-dark" style="border-top: none; height: 100%;">
+                                <h3
+                                    style="font-family: 'Outfit', sans-serif; font-size: 3rem; font-weight: 800; opacity: 0.1; position: absolute; top: 1rem; right: 1.5rem; color: white;">
+                                    '19</h3>
+                                <div class="bento-card-icon"><i class="fas fa-globe-americas"></i></div>
+                                <div>
+                                    <h4 class="bento-card-title">Global Expansion</h4>
+                                    <p class="bento-card-desc">Expanded operations internationally, serving clients
+                                        across North America, Europe, and APAC regions with dedicated support teams.</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2025</div>
-                        <div class="timeline-content">
-                            <h4>Leadership</h4>
-                            <p>200k+ professionals trained globally.</p>
+
+                        <!-- 2025: Leadership (Dark) -->
+                        <div class="span-2">
+                            <div class="bento-card card-dark" style="border-top: none; height: 100%;">
+                                <h3
+                                    style="font-family: 'Outfit', sans-serif; font-size: 3rem; font-weight: 800; opacity: 0.1; position: absolute; top: 1rem; right: 1.5rem; color: white;">
+                                    '25</h3>
+                                <div class="bento-card-icon"><i class="fas fa-award"></i></div>
+                                <div>
+                                    <h4 class="bento-card-title">Industry Leadership</h4>
+                                    <p class="bento-card-desc">Recognized as a premier training provider with 200k+
+                                        professionals trained globally and a robust partner network.</p>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>

@@ -115,6 +115,20 @@ function initCourseFilters() {
 
     if (!filterBtns.length && !searchInput) return;
 
+    let currentVisibleCount = 6;
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const loadMoreContainer = document.getElementById('loadMoreContainer');
+
+    // Load More Listener
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', () => {
+            currentVisibleCount += 6;
+            const activeFilter = document.querySelector('.filter-btn.active')?.getAttribute('data-filter') || 'all';
+            const searchText = searchInput ? searchInput.value : '';
+            applyFilters(activeFilter, searchText);
+        });
+    }
+
     // Filter by Category/Level
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -123,14 +137,19 @@ function initCourseFilters() {
             // Add active to clicked
             btn.classList.add('active');
 
+            // Reset visible count on filter change
+            currentVisibleCount = 6;
+
             const filter = btn.getAttribute('data-filter');
-            applyFilters(filter, searchInput.value);
+            applyFilters(filter, searchInput ? searchInput.value : '');
         });
     });
 
     // Search by Text
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
+            // Reset visible count on search
+            currentVisibleCount = 6;
             const activeFilter = document.querySelector('.filter-btn.active')?.getAttribute('data-filter') || 'all';
             applyFilters(activeFilter, e.target.value);
         });
@@ -138,6 +157,8 @@ function initCourseFilters() {
 
     function applyFilters(category, searchText) {
         const term = searchText.toLowerCase();
+        let matchCount = 0;
+        let visibleMatches = 0;
 
         cards.forEach(card => {
             const level = card.getAttribute('data-level');
@@ -157,16 +178,34 @@ function initCourseFilters() {
             }
 
             if (matchesSearch && matchesCategory) {
-                card.style.display = 'block';
-                // Re-trigger animation
-                card.style.animation = 'none';
-                card.offsetHeight; /* trigger reflow */
-                card.style.animation = null;
+                matchCount++;
+                if (matchCount <= currentVisibleCount) {
+                    card.style.display = 'block';
+                    visibleMatches++;
+                    // Re-trigger animation
+                    card.style.animation = 'none';
+                    card.offsetHeight; /* trigger reflow */
+                    card.style.animation = null;
+                } else {
+                    card.style.display = 'none';
+                }
             } else {
                 card.style.display = 'none';
             }
         });
+
+        // Toggle Load More Button
+        if (loadMoreContainer) {
+            if (matchCount > visibleMatches) {
+                loadMoreContainer.style.display = 'block';
+            } else {
+                loadMoreContainer.style.display = 'none';
+            }
+        }
     }
+
+    // Initial Apply
+    if (cards.length > 0) applyFilters('all', '');
 }
 
 // Active link highlighting based on current page
@@ -263,21 +302,9 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Navbar Background on Scroll
-const navbar = document.querySelector('.navbar');
-let lastScroll = 0;
-
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll > 50) {
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
-    } else {
-        navbar.style.boxShadow = 'none';
-    }
-
-    lastScroll = currentScroll;
-});
+// Navbar Background on Scroll - DEPRECATED
+// Logic moved to main scroll event listener to handle class toggling
+// See window.addEventListener('scroll') below
 
 // Intersection Observer for Fade-in Animations
 const observerOptions = {
@@ -493,15 +520,6 @@ const shapes = document.querySelectorAll('.hero-shapes .shape');
 
 window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
-    const heroRect = hero.getBoundingClientRect();
-    const inView = Math.max(0, 1 - Math.abs(heroRect.top) / (window.innerHeight));
-
-    // Parallax shapes with different depths
-    shapes.forEach((shape, i) => {
-        const depth = (i + 1) * 8;
-        const speed = 0.5 + (i * 0.1);
-        shape.style.transform = `translateY(${-(scrollY * speed / depth)}px) rotate(${scrollY * 0.1}deg)`;
-    });
 
     // Navbar background transition
     if (scrollY > 50) {
@@ -510,8 +528,21 @@ window.addEventListener('scroll', () => {
         navbar.classList.remove('scrolled');
     }
 
-    // Hero opacity based on view
-    hero.style.setProperty('--heroOpacity', (0.9 + inView * 0.1).toFixed(2));
+    // Parallax logic only if hero exists
+    if (hero) {
+        const heroRect = hero.getBoundingClientRect();
+        const inView = Math.max(0, 1 - Math.abs(heroRect.top) / (window.innerHeight));
+
+        // Parallax shapes with different depths
+        shapes.forEach((shape, i) => {
+            const depth = (i + 1) * 8;
+            const speed = 0.5 + (i * 0.1);
+            shape.style.transform = `translateY(${-(scrollY * speed / depth)}px) rotate(${scrollY * 0.1}deg)`;
+        });
+
+        // Hero opacity based on view
+        hero.style.setProperty('--heroOpacity', (0.9 + inView * 0.1).toFixed(2));
+    }
 });
 
 // Button Ripple Effect

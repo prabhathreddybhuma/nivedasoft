@@ -203,14 +203,16 @@ html {
 }
 
 /* Page Header Styles */
+/* Page Header Styles - DEPRECATED/LEGACY - Overridden by new Massive Hero */
 .page-header {
-    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-light) 100%);
+    background: transparent;
     color: var(--text-dark);
     padding: 140px 0 100px;
-    text-align: center;
+    text-align: left;
+    /* Changed from center */
     position: relative;
     overflow: hidden;
-    border-bottom: 1px solid var(--border-light);
+    border-bottom: none;
 }
 
 .page-header::before {
@@ -467,6 +469,8 @@ h2.animated-heading,
 .section-title.animated-heading {
     font-weight: 600;
     letter-spacing: -0.01em;
+    text-align: left;
+    /* Enforce left alignment */
 }
 
 h3.animated-heading {
@@ -694,7 +698,6 @@ h4.animated-heading {
 .training-methodology {
     margin: 100px 0;
     padding: 80px 0;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
     position: relative;
     overflow: hidden;
 }
@@ -786,7 +789,6 @@ h4.animated-heading {
 .instructors-section {
     margin: 100px 0;
     padding: 80px 0;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
     position: relative;
     overflow: hidden;
 }
@@ -916,7 +918,6 @@ h4.animated-heading {
 .success-stories {
     margin: 100px 0;
     padding: 80px 0;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
     position: relative;
     overflow: hidden;
 }
@@ -7463,7 +7464,9 @@ h4.animated-heading {
         flex-direction: row;
         gap: 20px;
     }
-}/* About Us Redesign - Dark Tech Theme */
+}
+
+/* About Us Redesign - Dark Tech Theme */
 
 /* Hero Grid */
 .about-hero-grid {
@@ -7485,12 +7488,13 @@ h4.animated-heading {
     color: var(--text-primary);
     margin-bottom: 2rem;
     letter-spacing: -0.02em;
-    grid-column: 1 / -1;
+    /* grid-column: 1 / -1; Removed to allow side-by-side */
 }
 
 .about-hero-image-container {
     position: relative;
-    border-radius: 30px;
+    border-radius: 2rem;
+    /* Consistent 2rem radius */
     overflow: hidden;
     height: 500px;
 }
@@ -7522,7 +7526,8 @@ h4.animated-heading {
 
 .philosophy-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    /* Symmetric 2-col */
     gap: 4rem;
     align-items: center;
 }
@@ -7597,6 +7602,7 @@ h4.animated-heading {
     margin-bottom: 2rem;
     background: linear-gradient(to right, #fff, #94a3b8);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -7693,5 +7699,336 @@ h4.animated-heading {
 
     .massive-title {
         order: -2;
+    }
+}
+
+/* Modern tech/node timeline styles */
+
+.timeline-section {
+    position: relative;
+    padding: 8rem 0;
+    overflow: hidden;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* Central Line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: linear-gradient(180deg,
+            rgba(59, 130, 246, 0.1) 0%,
+            rgba(59, 130, 246, 0.8) 50%,
+            rgba(59, 130, 246, 0.1) 100%);
+    transform: translateX(-50%);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+}
+
+.timeline-item {
+    position: relative;
+    width: 100%;
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Dot on the line */
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: #0F172A;
+    border: 2px solid #3B82F6;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+.timeline-item:hover .timeline-dot {
+    background: #3B82F6;
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.8);
+    transform: translateX(-50%) scale(1.3);
+}
+
+/* Year Display - Floating near dot */
+.timeline-year {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -40px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+    background: #0F172A;
+    /* Mask line behind */
+    padding: 0 10px;
+    z-index: 1;
+}
+
+/* Content Card */
+.timeline-content {
+    width: 42%;
+    /* Fit within half width with gap */
+    padding: 2rem;
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+/* Alternating Sides */
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-right: auto;
+    /* Push to left */
+    text-align: right;
+    border-right: 3px solid #3B82F6;
+    /* Accent border on line side */
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-left: auto;
+    /* Push to right */
+    text-align: left;
+    border-left: 3px solid #3B82F6;
+    /* Accent border on line side */
+}
+
+/* Card Hover */
+.timeline-item:hover .timeline-content {
+    transform: translateY(-5px);
+    background: rgba(30, 41, 59, 0.8);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+/* Typography in card */
+.timeline-content h4 {
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 30px;
+        /* Line to left */
+    }
+
+    .timeline-dot {
+        left: 30px;
+    }
+
+    .timeline-year {
+        left: 70px;
+        /* Align year next to dot */
+        top: -35px;
+        transform: none;
+        background: transparent;
+    }
+
+    .timeline-content,
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        width: calc(100% - 80px);
+        margin-left: 80px;
+        /* Push content right of line */
+        margin-right: 0;
+        text-align: left;
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+        /* Reset borders */
+        border-left: 3px solid #3B82F6;
+    }
+}
+
+/* Generic Bento Card Styles (reused from testimonials) */
+.services-bento-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bento-card {
+    border-radius: 0;
+    /* Square/Tech look */
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.bento-card:hover {
+    transform: translateY(-5px);
+    z-index: 2;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.bento-card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: inherit;
+    /* Gradient text for icon? */
+    background: linear-gradient(135deg, #fff, rgba(255, 255, 255, 0.5));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.bento-card-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: inherit;
+}
+
+.bento-card-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.8;
+    color: inherit;
+}
+
+/* Ensure bento grid spans work for services */
+.services-bento-container .bento-grid {
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: minmax(280px, auto);
+}
+
+/* Remove gap for grids inside sidebar layout */
+.sidebar-layout .bento-grid {
+    gap: 0;
+    margin-top: 0;
+}
+
+/* Adjust card borders for 0-gap grid */
+.sidebar-layout .bento-grid .bento-card {
+    border-radius: 0;
+    /* Use outline for cleaner grid lines or rely on existing borders */
+    /* If inline styles are used to manage borders, we keep them. 
+       Otherwise, ensure they don't double up too badly. */
+}
+
+/* Generic Split/Sidebar Layout */
+.sidebar-layout {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(15, 23, 42, 0.3);
+    /* Subtle backdrop */
+}
+
+/* Sidebar Column */
+.sidebar-column {
+    width: 100px;
+    min-width: 100px;
+    /* Fixed width for packed look */
+    background: rgba(15, 23, 42, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Center vertically */
+    padding: 0;
+    /* Remove padding to pack it */
+    position: relative;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Right Sidebar Modifier */
+.sidebar-column.right {
+    border-right: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    order: 2;
+    /* Moves to right if flex container direction is row */
+}
+
+/* Content Column */
+.content-column {
+    width: calc(100% - 100px);
+    /* Remaining width */
+    /* No padding here, handled by inner grid or container */
+    flex-grow: 1;
+}
+
+/* Vertical Text Style */
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    font-family: 'Outfit', sans-serif;
+    font-size: 3.5rem;
+    /* Adjusted for section headers */
+    font-weight: 800;
+    margin: 0;
+    white-space: nowrap;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #FFFFFF 0%, #94A3B8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+    .sidebar-layout {
+        flex-direction: column;
+    }
+
+    .sidebar-column {
+        width: 100%;
+        min-width: auto;
+        padding: 2rem 1rem;
+        flex-direction: row;
+        justify-content: center;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .sidebar-column.right {
+        order: 0;
+        /* Reset order for mobile stack (title on top) */
+        border-left: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .content-column {
+        width: 100%;
+    }
+
+    .vertical-text {
+        writing-mode: horizontal-tb;
+        transform: none;
+        font-size: 2.5rem;
     }
 }
