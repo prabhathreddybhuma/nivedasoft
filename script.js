@@ -516,6 +516,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 const hero = document.querySelector('.hero');
+const navbar = document.querySelector('.navbar');
 const shapes = document.querySelectorAll('.hero-shapes .shape');
 
 window.addEventListener('scroll', () => {
