@@ -771,10 +771,7 @@ function optimizeForMobile() {
                 .hero-mesh {
                     animation-duration: 40s !important;
                 }
-                * {
-                    animation-duration: 0.3s !important;
-                    transition-duration: 0.3s !important;
-                }
+                /* Removed aggressive wildcard animation overrides that broke the marquee */
             }
         `;
         document.head.appendChild(style);
